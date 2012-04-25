@@ -17,6 +17,7 @@
     UIScrollView * mainView;                    //主滑动视图
     UIScrollView * scrollImage;                //滑动滑动图片展示
     //TouchImagView * showSellActView;           //可点击的滑动图片视图
+    NSInteger superCount;                             //滚动图的个数
     MyPageControl * pageControl;               //自定义的pageControl
     UITableView * NewsTableView;               //资讯标题列表
     //NSMutableArray * cellMutableArray;
