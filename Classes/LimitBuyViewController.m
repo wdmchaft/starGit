@@ -136,7 +136,7 @@
 	//分段控制（正在出售 即将出售 预售日历）
 	segControl = [[UISegmentedControl alloc] initWithItems:segArray];
 	segControl.frame = CGRectMake(5, 6, 300, 30);
-	segControl.segmentedControlStyle = UISegmentedControlStyleBar;
+	segControl.segmentedControlStyle = UISegmentedControlStyleBezeled;
 	[segControl addTarget:self action:@selector(doChangeMode:) forControlEvents:UIControlEventValueChanged];
 	segControl.tintColor = [UIColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f];
     segControl.tag = 2001;
