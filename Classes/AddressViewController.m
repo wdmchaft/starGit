@@ -23,36 +23,47 @@
 #pragma mark 键盘回收
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	[UIView beginAnimations:@"scroll" context:nil];
-	[UIView setAnimationDuration:0.25];
-	CGRect frame = CGRectMake(0, 0, 320, 480);
-	self.view.frame = frame;
-	[UIView commitAnimations];
-	[textField resignFirstResponder];
-	return YES;
+	if (textField.tag<3005) {
+        [textField resignFirstResponder];
+        UITextField * textFieldDawn = (UITextField *)[addressView viewWithTag:[textField tag]+1];
+        [textFieldDawn becomeFirstResponder];
+         return NO;
+    }
+    else{
+        [UIView beginAnimations:@"scroll" context:nil];
+        [UIView setAnimationDuration:0.25];
+        CGRect frame = CGRectMake(0, 0, 320, 480);
+        self.view.frame = frame;
+        [UIView commitAnimations];
+        [textField resignFirstResponder];
+        return YES;
+    }
 }
 
-//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-//{
-//	float y = textField.frame.origin.y;
-//	if(y >= 170)
-//	{
-//		[UIView beginAnimations:@"scroll" context:nil];
-//		[UIView setAnimationDuration:0.25];
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+	float y = textField.frame.origin.y;
+	if(y >= 130&&y<=252)
+	{
+        [UIView beginAnimations:@"scroll" context:nil];
+		[UIView setAnimationDuration:0.25];
+        [addressView setContentOffset:CGPointMake(addressView.contentOffset.x, y-94) animated:YES];
 //		CGRect frame = CGRectMake(0, -(textField.frame.origin.y -130), 320, 480);
 //		self.view.frame = frame; 
-//		[UIView commitAnimations];
-//	}
+        [UIView commitAnimations];
+	}
 //	else
 //	{
-//		[UIView beginAnimations:@"scroll" context:nil];
+//		NSLog(@"zidongyidong____2");
+//        [UIView beginAnimations:@"scroll" context:nil];
 //		[UIView setAnimationDuration:0.25];
-//		CGRect frame = CGRectMake(0, 0, 320, 480);
-//		self.view.frame = frame; 
-//		[UIView commitAnimations];
+////		CGRect frame = CGRectMake(0, 0, 320, 480);
+////		self.view.frame = frame; 
+//		[addressView setContentOffset:CGPointMake(0, 0) animated:YES];
+//        [UIView commitAnimations];
 //	}
-//	return YES;
-//}
+	return YES;
+}
 
 #pragma mark -
 #pragma mark 返回 收货地址列表
@@ -100,9 +111,9 @@ static AddressViewController *AVC = nil;
 	
 //	UIView *addressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 367)];
 //	addressView.backgroundColor = [UIColor blackColor];
-    UIScrollView *addressView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 367)];
+    addressView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 367)];
 	addressView.backgroundColor = [UIColor blackColor];
-    addressView.contentSize = CGSizeMake(320, 497);
+    addressView.contentSize = CGSizeMake(320, 490);
     addressView.showsVerticalScrollIndicator = NO;
     addressView.showsHorizontalScrollIndicator = NO;
     //addressView.contentOffset = CGPointMake(0, 80);
@@ -122,6 +133,7 @@ static AddressViewController *AVC = nil;
 	receiverTF.text = @"";
 	receiverTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	receiverTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    receiverTF.tag = 3001;
 	receiverTF.delegate = self;
 	[addressView addSubview:receiverTF];
 	
@@ -144,6 +156,7 @@ static AddressViewController *AVC = nil;
 	addressTF.text = @"";
 	addressTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	addressTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    addressTF.tag = 3002;
 	addressTF.delegate = self;
 	[addressView addSubview:addressTF];
 	//邮政编码
@@ -155,6 +168,7 @@ static AddressViewController *AVC = nil;
 	postCodeTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
 	postCodeTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	postCodeTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    postCodeTF.tag = 3003;
 	postCodeTF.delegate = self;
 	[addressView addSubview:postCodeTF];
 
@@ -167,6 +181,7 @@ static AddressViewController *AVC = nil;
 	mobileTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
 	mobileTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	mobileTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    mobileTF.tag = 3004;
 	mobileTF.delegate = self;
 	[addressView addSubview:mobileTF];
 	
@@ -179,6 +194,7 @@ static AddressViewController *AVC = nil;
 	phoneTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
 	phoneTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	phoneTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    phoneTF.tag = 3005;
 	phoneTF.delegate = self;
 	[addressView addSubview:phoneTF];
 	
