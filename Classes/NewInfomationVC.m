@@ -112,7 +112,7 @@
     pageControl.backgroundColor = [UIColor clearColor];
     pageControl.currentPage = 0;
     pageControl.enabled = NO;
-    pageControl.numberOfPages = [superActArray count];
+    pageControl.numberOfPages = superCount;
     [pageControl setImagePageStateNormal:[UIImage imageNamed:@"WhitePoint.png"]];
     [pageControl setImagePageStateHighlighted:[UIImage imageNamed:@"YellowPoint.png"]];
     [mainView addSubview:pageControl];
@@ -189,7 +189,7 @@
 //定时器触发事件
 - (void)handleMaxShowTimer:(NSTimer *)theTimer
 {
-    //NSLog(@"%s",__FUNCTION__);
+    NSLog(@"%s",__FUNCTION__);
     
     NSInteger autoScrollNum = [superActArray count] - 1;
     
@@ -275,13 +275,42 @@
 #pragma  mark  -
 #pragma  mark  UIScrollViewDelegate 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSInteger pageNum = (scrollImage.contentOffset.x+160)/320;
-    pageControl.currentPage = pageNum;
-    [pageControl updateDots];
+//    NSInteger pageNum = (scrollImage.contentOffset.x+160)/320;
+//    pageControl.currentPage = pageNum;
+//    [pageControl updateDots];
+    int pagscroll  = scrollImage.contentOffset.x;
     
+    if (pagscroll/320 == superCount) 
+    {
+        scrollImage.contentOffset = CGPointMake(0, 0);
+    }
+    if (pagscroll%320 ==0) {
+        if (pagscroll/320==superCount) {
+            pageControl.currentPage = 0;
+        }else
+            pageControl.currentPage = pagscroll/320;
+        
+        [pageControl updateDots];
+    }
 
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    int pagscroll  = scrollImage.contentOffset.x;
+    //实现轮播的关键语句
+    if (pagscroll/320 == superCount) 
+    {
+        scrollImage.contentOffset = CGPointMake(0, 0);
+    }
+    if (pagscroll%320 ==0) {
+        if (pagscroll/320==superCount) {
+            pageControl.currentPage = 0;
+        }else
+            pageControl.currentPage = pagscroll/320;
+        
+        [pageControl updateDots];
+    }
+}
 
 
 #pragma mark -
@@ -441,7 +470,8 @@
         }
         GDataXMLElement *root = [document rootElement];
         NSArray *blogList = [root elementsForName:@"pic"];
-        self.superActArray = [[[NSMutableArray alloc] init] autorelease];
+        //--self.superActArray
+         NSMutableArray * mutableSuperActArray= [[NSMutableArray alloc] init];
         for(GDataXMLElement *element in blogList)
         {
             //SuperAct * superAct = [[SuperAct alloc] init];
@@ -455,9 +485,17 @@
             GDataXMLElement *Pic = [[element elementsForName:@"pic"] objectAtIndex:0];
             picAct.pic = [Pic stringValue];
           //NSLog(@"picAct.activityID = %@,picAct.activityNO = %@,picAct.time = %@,picAct.Pic = %@",picAct.activityID,picAct.activityNO,picAct.time,picAct.pic);
-            [self.superActArray addObject:picAct];
+            [mutableSuperActArray addObject:picAct];
+            NSLog(@"mutableSuperActArray   count = %d",[mutableSuperActArray count]);
             [picAct release];
         }
+        //[self.superActArray initWithArray:mutableSuperActArray];
+        superActArray  = [[NSMutableArray alloc] init];
+        [superActArray addObjectsFromArray:mutableSuperActArray];
+        [superActArray addObject:[mutableSuperActArray objectAtIndex:0]];
+        NSLog(@"self.superActArray    count = %d",[self.superActArray count]);
+        superCount = [self.superActArray count]-1;
+        [mutableSuperActArray release];
         [self loadImageNew];
         [document release];
         [superActConnection release];
