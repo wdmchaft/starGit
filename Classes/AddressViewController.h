@@ -26,7 +26,8 @@
 @interface AddressViewController : UIViewController <UITextFieldDelegate,AddressVCDelegate>
 {
 	id<AddressVCDelegate>delegate;				//我的账户-收货地址代理
-	UITextField *receiverTF;					//收货人姓名
+	UIScrollView * addressView;            //可滚动的底层
+    UITextField *receiverTF;					//收货人姓名
 	UILabel *cityLabel;							//省市县
 	UITextField *addressTF;						//地址
 	UITextField *postCodeTF;					//邮编
