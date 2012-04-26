@@ -19,6 +19,12 @@
 #import "MobClick.h"
 #endif
 
+#if DEBUG  
+#define MCRelease(x) [x release]  
+#else  
+#define MCRelease(x) [x release], x = nil  
+#endif
+
 
 #define WORDCOLOR [UIColor colorWithRed:0.761f green:0.639f blue:0.259f alpha:1.0f]
 //#define ADDRESS @"http://218.241.86.103:3333/iphone/action.ashx?action"

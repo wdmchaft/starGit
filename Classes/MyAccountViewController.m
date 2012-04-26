@@ -29,6 +29,7 @@
 
 - (void)dealloc 
 {
+    NSLog(@"%@",__FUNCTION__);
     [super dealloc];
     [userInfoVC release];
     [functionAarray release];
@@ -38,6 +39,8 @@
     [userLevel release];
     [userEmailLable release];
     [functionAarray release];
+    
+    myOrderVC = nil;
     
     self.functionTableView = nil;
     self.receivedData = nil;
@@ -211,6 +214,9 @@
     logOutActSheet.alpha = 0.9f;
     [logOutActSheet showInView:self.tabBarController.view];
     [logOutActSheet release];
+    [myOrderVC release];
+    myOrderVC = nil;
+    myKeepListVC = nil;
     
 }
 
@@ -320,6 +326,8 @@
             }
             [self.navigationController pushViewController:myOrderVC animated:YES];
             [myOrderVC.myOrderView loadMyOrder];
+//            [myOrderVC release];
+//            myOrderVC = nil;
             break;
         case 1:
             if (myKeepListVC == nil) {

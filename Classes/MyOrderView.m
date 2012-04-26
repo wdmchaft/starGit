@@ -243,11 +243,9 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
 	NSLog(@"Succeeded! Received %d bytes of data",[self.receivedData length]);
-	[loadingView finishLoading];
+    [loadingView finishLoading];
 	[loadingView removeFromSuperview];
 	[loadingView release];
-    [myOrderListConnection release];
-    myOrderListConnection = nil;
     [self.superview bringSubviewToFront:self];
 	NSError *error = nil;
 	GDataXMLDocument *document = [[GDataXMLDocument alloc] initWithData:self.receivedData options:0 error:&error];
@@ -298,6 +296,8 @@
 	self.scrollEnabled = YES;
 	[document release];
 	self.receivedData = nil;
+    [myOrderListConnection release];
+    myOrderListConnection = nil;
 	//[orderDelegate didOrderViewFinishLaunching];
 	
 }
@@ -320,7 +320,9 @@
 - (void)dealloc 
 {
 	[orderArray release];
-	self.receivedData = nil;
+	[myOrderListConnection release];
+    myOrderListConnection = nil;
+    self.receivedData = nil;
     [super dealloc];
 }
 

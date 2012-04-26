@@ -81,7 +81,7 @@
 	
 	NSURL *presellCalenderlistStrUrl = [[NSURL alloc] initWithString:presellCalenderlistStr];
 	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:presellCalenderlistStrUrl];
-	loadingView = [[LoadingView alloc] initWithFrame:self.frame];
+	loadingView = [[LoadingView alloc] initWithFrame:m_tableView.frame];
 	[self addSubview:loadingView];
 	pcListConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 	[request release];

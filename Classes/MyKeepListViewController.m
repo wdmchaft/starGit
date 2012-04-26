@@ -436,6 +436,7 @@
             {
                 [document release];
                 [KeepListConnection release];
+                KeepListConnection = nil;
                 self.navigationItem.leftBarButtonItem.enabled = YES;
                 self.navigationItem.rightBarButtonItem.enabled = YES;
                 return;
@@ -470,6 +471,7 @@
             [self.tableView reloadData];
             //[document release];
             [KeepListConnection release];
+            KeepListConnection = nil;
         
         self.navigationItem.leftBarButtonItem.enabled = YES;
         self.navigationItem.rightBarButtonItem.enabled = YES;

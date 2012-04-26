@@ -48,8 +48,9 @@
 		myOrderView.delegate = myOrderView;
 		myOrderView.orderDelegate = self;
 		[self.view addSubview:myOrderView];
-        [myOrderView release];
         [myOrderView loadMyOrder];
+        [myOrderView release];
+
     }
     return self;
 }
@@ -110,6 +111,14 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dealloc
+{
+    myOrderView = nil;
+    [orderDetailVC release];
+    orderDetailVC = nil;
+    [super dealloc];
 }
 
 @end
