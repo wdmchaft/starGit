@@ -241,6 +241,7 @@
 		if(viewController.tabBarItem.tag != 1000)
 		{
             [self presentModalViewController:loginViewController animated:YES];
+            //[loginViewController.userNameTF becomeFirstResponder];
         }
 		tabBarC.selectedIndex = 0;
 	}

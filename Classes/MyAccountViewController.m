@@ -214,8 +214,11 @@
     logOutActSheet.alpha = 0.9f;
     [logOutActSheet showInView:self.tabBarController.view];
     [logOutActSheet release];
+
+    //下面两行代码修复了“我的订单”在切换用户后，订单同步刷新的问题
     [myOrderVC release];
     myOrderVC = nil;
+    
     myKeepListVC = nil;
     
 }

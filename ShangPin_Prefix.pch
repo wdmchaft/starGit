@@ -39,9 +39,10 @@
 //#define ADDRESS @"http://192.168.4.227:7001/iphone/action.ashx?v=1.3&action"             //肖勇
 
 //#define ADDRESS @"http://192.168.1.103:5678/iphone/action.ashx?v=1.3&action"
-#define ADDRESS @"http://www02.shangpin.com/iphone/action.ashx?v=1.3&action" 
+//#define ADDRESS @"http://www02.shangpin.com/iphone/action.ashx?v=1.3&action" 
 
-//#define ADDRESS @"http://www.shangpin.com/iphone/action.ashx?v=1.3&action"      //生产环境
+#define ADDRESS @"http://www.shangpin.com/iphone/action.ashx?v=1.3&action"                //生产环境
+//#define ADDRESS @"http://luxury.shangpin.com/iphone/action.ashx?v=1.3&action"           //另一个域名
 
 //#define ADDRESS @"http://www.shangpin.com/iphone/action.ashx?action"      //版本1.3之前  生产环境
 //#define ADDRESS @"http://www0.shangpin.com/iphone/action.ashx?action"   //测试环境

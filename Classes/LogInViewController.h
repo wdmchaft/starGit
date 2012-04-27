@@ -32,7 +32,8 @@ extern NSString * const StarTimerNotification;
 {	
 	id<LoginDelegate> delegate;							//登录成功的代理
     id<MyAcountLoginDelegate>MyAcountDelegate;          //登录后加载我的尚品数据代理
-	UITextField *userNameTF;							//用户名
+	UIScrollView * backGroundView;
+    UITextField *userNameTF;							//用户名
 	UITextField *passwordTF;							//密码
     
 	BOOL haslogin;										//TRUE 已经登录   FALSE 还没登录
@@ -51,10 +52,11 @@ extern NSString * const StarTimerNotification;
 
 @property (nonatomic, assign) id<LoginDelegate> delegate;
 @property (nonatomic, assign) id<MyAcountLoginDelegate> MyAcountDelegate;
-@property(nonatomic, retain) NSMutableData *receivedData;
+@property (nonatomic, retain) NSMutableData *receivedData;
+@property (nonatomic, retain) UITextField *userNameTF;
 @property BOOL haslogin;
 
 +(LogInViewController *)defaultLoginViewController;		//单例 初始化方法
 -(void) readUserName;                    //读取保存的用户信息
-
+-(void) doLogin;
 @end

@@ -7,9 +7,10 @@
 //
 
 #import "ForgetPasswordViewController.h"
-
+#import "LogInViewController.h"
 
 @implementation ForgetPasswordViewController
+@synthesize emailTF;
 @synthesize receivedData;
 
 #pragma mark -
@@ -166,6 +167,12 @@
 {
     [self.view removeFromSuperview];
      emailTF.text = nil;
+    
+    //用户邮箱输入框重新找回焦点
+    LogInViewController *loginViewController = [LogInViewController defaultLoginViewController];
+    [loginViewController.userNameTF becomeFirstResponder];
+
+    
 }
 
 #pragma mark -

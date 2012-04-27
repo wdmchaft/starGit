@@ -11,6 +11,8 @@
 
 extern NSString * const LoginSuccess;
 @interface RegisterViewController : UIViewController <UITextFieldDelegate> {
+    
+    UIScrollView * backGroundView;        
     UITextField *emailTF;					//邮箱地址
 	UITextField *setPasswordTF;				//设置密码
     UITextField *mobileTF;                  //手机号码

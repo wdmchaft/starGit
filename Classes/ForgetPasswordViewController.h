@@ -20,7 +20,7 @@
 	NSURLConnection *getPasswordConnection;		//登录 链接
 	NSMutableData *receivedData;				//接口返回的数据
 }
-
+@property(nonatomic,retain) UITextField *emailTF;	
 @property(nonatomic, retain) NSMutableData *receivedData;
 
 @end

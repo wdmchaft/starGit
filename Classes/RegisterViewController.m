@@ -41,15 +41,33 @@
 	}
 }
 
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField
+//{
+//	[UIView beginAnimations:@"scroll" context:nil];
+//	[UIView setAnimationDuration:0.25];
+//	CGRect frame = CGRectMake(0, 0, 320, 480);
+//	self.view.frame = frame;
+//	[UIView commitAnimations];
+//	[textField resignFirstResponder];
+//	return YES;
+//}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	[UIView beginAnimations:@"scroll" context:nil];
-	[UIView setAnimationDuration:0.25];
-	CGRect frame = CGRectMake(0, 0, 320, 480);
-	self.view.frame = frame;
-	[UIView commitAnimations];
-	[textField resignFirstResponder];
-	return YES;
+	if (textField.tag<2003) {
+        [textField resignFirstResponder];
+        UITextField * textFieldDawn = (UITextField *)[backGroundView viewWithTag:[textField tag]+1];
+        [textFieldDawn becomeFirstResponder];
+        return NO;
+    }
+    else{
+//        [UIView beginAnimations:@"scroll" context:nil];
+//        [UIView setAnimationDuration:0.25];
+//        CGRect frame = CGRectMake(0, 0, 320, 480);
+//        self.view.frame = frame;
+//        [UIView commitAnimations];
+        [textField resignFirstResponder];
+        return YES;
+    }
 }
 
 
@@ -120,7 +138,7 @@ static RegisterViewController *registerVC = nil;
     remoteNotification  = TRUE;
     //登录窗口
      
-    UIScrollView * backGroundView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+    backGroundView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
     backGroundView.contentSize = CGSizeMake(320, 661);
     backGroundView.backgroundColor = [UIColor clearColor];
     backGroundView.showsVerticalScrollIndicator = NO;
@@ -179,14 +197,15 @@ static RegisterViewController *registerVC = nil;
     emailTF.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;  
     emailTF.text = @"";
 	emailTF.borderStyle = UITextBorderStyleNone;
-	emailTF.placeholder = @" Email";
+	emailTF.placeholder = @" 请填写您的常用邮箱";
+    emailTF.returnKeyType = UIReturnKeyNext;
 	emailTF.keyboardType = UIKeyboardTypeEmailAddress;
     emailTF.keyboardAppearance = UIKeyboardAppearanceAlert;
-    emailTF.returnKeyType = UIReturnKeyDone;
 	emailTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	//emailTF.secureTextEntry = YES;
     emailTF.delegate = self;
 	emailTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    emailTF.tag = 2001;
     [backGroundView addSubview:emailTF];
 
     
@@ -208,11 +227,12 @@ static RegisterViewController *registerVC = nil;
     setPasswordTF.borderStyle = UITextBorderStyleNone;
     setPasswordTF.keyboardType = UIKeyboardTypeEmailAddress;
     setPasswordTF.keyboardAppearance = UIKeyboardAppearanceAlert;
-    setPasswordTF.returnKeyType = UIReturnKeyDone;
+    setPasswordTF.returnKeyType = UIReturnKeyNext;
     setPasswordTF.secureTextEntry = YES;
     setPasswordTF.delegate = self;
     setPasswordTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
     setPasswordTF.clearButtonMode = UITextFieldViewModeUnlessEditing;
+    setPasswordTF.tag = 2002;
     [backGroundView addSubview:setPasswordTF];
     
     UIImageView * imageDLtext3 = [[UIImageView alloc] initWithFrame:CGRectMake(24, 155, 272, 29)];
@@ -231,12 +251,13 @@ static RegisterViewController *registerVC = nil;
     mobileTF.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     mobileTF.borderStyle = UITextBorderStyleNone;
     mobileTF.keyboardAppearance = UIKeyboardAppearanceAlert;
-    mobileTF.returnKeyType = UIReturnKeyDone;
+    mobileTF.returnKeyType = 	UIReturnKeyNext;
     mobileTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-    //mobileTF.secureTextEntry = YES;
+    mobileTF.secureTextEntry = YES;
     mobileTF.delegate = self;
     mobileTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
     mobileTF.clearButtonMode = UITextFieldViewModeUnlessEditing;
+    mobileTF.tag = 2003;
     [backGroundView addSubview:mobileTF];
 
    
@@ -452,7 +473,6 @@ static RegisterViewController *registerVC = nil;
 
     self.view = registerView;
     [registerView release];
-
 }
 
 -(void) backToLoginView
@@ -465,9 +485,14 @@ static RegisterViewController *registerVC = nil;
     sexSegmentedCtl.selectedSegmentIndex = UISegmentedControlNoSegment;
     //sexSegmentedCtl.selectedSegmentIndex = 2;
     doSelectSex = FALSE;
+    
+    //用户邮箱输入框重新找回焦点
+    LogInViewController *loginViewController = [LogInViewController defaultLoginViewController];
+    [loginViewController.userNameTF becomeFirstResponder];
+    
     NSLog(@"返回登陆界面");
     //sexSegmentedCtl.momentary = YES;
-}
+ }
 
 #pragma mark -
 #pragma mark 性别选择   是否接受条款   是否接收售卖通知

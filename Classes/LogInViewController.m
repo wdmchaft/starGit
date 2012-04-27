@@ -14,6 +14,7 @@
 @synthesize haslogin;
 @synthesize delegate;
 @synthesize MyAcountDelegate;
+@synthesize userNameTF;
 @synthesize receivedData;
 
 #pragma mark -
@@ -46,8 +47,17 @@
 #pragma mark 键盘回收
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	[textField resignFirstResponder];
-	return YES;
+	if (textField.tag<1002) {
+        [textField resignFirstResponder];
+        UITextField * textFieldDawn = (UITextField *)[backGroundView viewWithTag:[textField tag]+1];
+        [textFieldDawn becomeFirstResponder];
+        return NO;
+    }
+    else{
+        [textField resignFirstResponder];
+        [self doLogin];
+        return YES;
+    }
 }
 
 #pragma mark -
@@ -92,7 +102,7 @@ static LogInViewController *loginVC = nil;
 	[loginView addSubview:imageBJ];
 	[imageBJ release];
     
-    UIScrollView * backGroundView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+    backGroundView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
     backGroundView.contentSize = CGSizeMake(320, 461);
     backGroundView.backgroundColor = [UIColor clearColor];
     backGroundView.showsVerticalScrollIndicator = NO;
@@ -165,9 +175,11 @@ static LogInViewController *loginVC = nil;
 	userNameTF.placeholder = @" Email/手机号";
 	userNameTF.keyboardType = UIKeyboardTypeEmailAddress;
     userNameTF.keyboardAppearance = UIKeyboardAppearanceAlert;
-    userNameTF.returnKeyType = UIReturnKeyDone;
+    userNameTF.returnKeyType = UIReturnKeyNext;
 	userNameTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	userNameTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    userNameTF.tag = 1001;
+    [userNameTF becomeFirstResponder];
     //userNameTF.secureTextEntry = YES;
     userNameTF.delegate = self;
     [backGroundView addSubview:userNameTF];
@@ -180,8 +192,9 @@ static LogInViewController *loginVC = nil;
 	passwordTF.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	passwordTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
     passwordTF.keyboardAppearance = UIKeyboardAppearanceAlert;
-    passwordTF.returnKeyType = UIReturnKeyDone;
+    passwordTF.returnKeyType = UIReturnKeyJoin;
 	passwordTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+    passwordTF.tag = 1002;
 	passwordTF.secureTextEntry = YES;
 	passwordTF.delegate = self;
 	[backGroundView addSubview:passwordTF];
@@ -250,6 +263,12 @@ static LogInViewController *loginVC = nil;
 //    MyAccountViewController * myAccountVC = [[MyAccountViewController alloc] init];
 //    self.MyAcountDelegate = myAccountVC;
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"in  RootViewController viewWillAppear  %s",__FUNCTION__);
+    [userNameTF becomeFirstResponder];
 }
 
 #pragma mark -
@@ -330,6 +349,7 @@ static LogInViewController *loginVC = nil;
 		forgetPasswordVC = [[ForgetPasswordViewController alloc] init];
 	}
 	[self.view addSubview:forgetPasswordVC.view];
+    [forgetPasswordVC.emailTF becomeFirstResponder];
 }
 
 -(void) doRegister
@@ -339,9 +359,10 @@ static LogInViewController *loginVC = nil;
     if(registerVC == nil)
 	{
 		registerVC = [RegisterViewController defaultRegisterViewController];
+        //[registerVC.emailTF becomeFirstResponder];
 	}
 	[self.view addSubview:registerVC.view];
-	//[registerVC.emailTF becomeFirstResponder];
+	[registerVC.emailTF becomeFirstResponder];
 }
 
 -(void)getAccountInfo	//读取账户信息－真实姓名
