@@ -55,11 +55,11 @@
 	m_tableView.backgroundColor = [UIColor blackColor];
 	m_tableView.delegate = self;
 	m_tableView.dataSource = self;
-	[addressListView addSubview:m_tableView];
-	
+	[addressListView addSubview:m_tableView];    
 	self.view = addressListView;
 	[addressListView release];
-}
+    
+ }
 
 #pragma mark -
 #pragma mark 刷新列表  添加新收货地址
@@ -100,7 +100,6 @@
 	cell.detailTextLabel.text = address.address;
 	cell.detailTextLabel.textColor = WORDCOLOR;
 	cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-	
 	return cell;
 }
 

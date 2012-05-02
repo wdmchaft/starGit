@@ -565,7 +565,11 @@
 			address.mobile = [mobile stringValue];											//手机号码
 			GDataXMLElement *consigneeid = [[receiver elementsForName:@"consigneeid"] objectAtIndex:0];
 			address.consigneeid = [consigneeid stringValue];
-			[self.addressArray addObject:address];
+			if (address.Name != nil) 
+            {
+                [self.addressArray addObject:address];
+                [address release];
+            }else
 			[address release];
 		}
 		[getAddressConnection release];
