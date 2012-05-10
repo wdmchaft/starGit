@@ -341,7 +341,7 @@
 	
 	UIScrollView *limitBuyListView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 367)];
 	limitBuyListView.backgroundColor = [UIColor clearColor];
-    limitBuyListView.contentSize = CGSizeMake(320, 500);
+    limitBuyListView.contentSize = CGSizeMake(320, 600);
 			
 	scrollVC = [[UIScrollView alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 100.0f, 133.0f)];
 	scrollVC.backgroundColor = [UIColor grayColor];
@@ -503,7 +503,7 @@
     
     
     
-	detailInfoWebview = [[UIWebView alloc] initWithFrame:CGRectMake(10, 263, 300.f, 200.0f)];
+	detailInfoWebview = [[UIWebView alloc] initWithFrame:CGRectMake(10, 263, 300.f, 300.0f)];
 	detailInfoWebview.backgroundColor = [UIColor whiteColor];//colorWithRed:0.149f green:0.149f blue:0.149f alpha:1.0f];
     
 //    UIFont * fontSize = [UIFont systemFontOfSize:16.0f];

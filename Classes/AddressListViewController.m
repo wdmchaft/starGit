@@ -28,7 +28,7 @@
 
 - (void)loadView 
 {
-	self.title = @"收货地址列表";
+	self.title = @"收货人信息列表";
 //	UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //	backButton.frame = CGRectMake(0, 0, 53, 29);
 //    [backButton setTitle:@"返回" forState:UIControlStateNormal];

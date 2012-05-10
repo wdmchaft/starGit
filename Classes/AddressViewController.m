@@ -86,7 +86,7 @@ static AddressViewController *AVC = nil;
 
 - (void)loadView 
 {
-	self.title = @"收货地址";
+	self.title = @"收货人信息";
 	//返回按钮
 //	UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //	backButton.frame = CGRectMake(0, 0, 53, 29);

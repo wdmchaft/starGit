@@ -55,7 +55,7 @@
     [self.window makeKeyAndVisible];   
     //注册通知
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound)];
-    //[self setScheduleNotifications];
+    [self setScheduleNotifications];
 	return YES;
 }
 //启动动画
