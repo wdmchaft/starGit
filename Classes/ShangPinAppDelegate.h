@@ -32,6 +32,7 @@
 -(void)starSound;    //启动声音
 -(void)starAnimation;//启动动画开始
 -(void)addRootViewController;//加载初始界面
+- (void)setScheduleNotifications; //添加本地通知
 //-(void)CheckForUpgrade;//检查更新
 @end
 

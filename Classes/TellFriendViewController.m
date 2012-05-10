@@ -293,7 +293,7 @@ static TellFriendViewController *tellFriendVC = nil;
         contentTV.keyboardAppearance = UIKeyboardAppearanceAlert;
 		contentTV.font = [UIFont systemFontOfSize:14];
 		contentTV.editable = YES;
-		contentTV.text = @"快来参加“XXX“限时限量折扣专场活动";
+		contentTV.text = @"我在尚品网看到XXX活动，商品很棒，超低折扣，你也来看看吧:)";
 		contentTV.delegate = self;
 		[contentView addSubview:contentTV];
 		
@@ -327,7 +327,7 @@ static TellFriendViewController *tellFriendVC = nil;
 	[ImageCacheManager setImg:imageView	withUrlString:theUrl];
 	
 	//OnlyAccount *account = [OnlyAccount defaultAccount];
-	contentTV.text = [NSString stringWithFormat:@"快来参加“%@“限时限量折扣专场活动",self.subjectTheme];
+	contentTV.text = [NSString stringWithFormat:@"我在尚品网看到”%@“活动，商品很棒，超低折扣，你也来看看吧:)",self.subjectTheme];
 	clearContent = TRUE;
 }
 

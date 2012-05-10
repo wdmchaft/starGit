@@ -55,7 +55,7 @@
     [self.window makeKeyAndVisible];   
     //注册通知
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound)];
-    
+    //[self setScheduleNotifications];
 	return YES;
 }
 //启动动画
@@ -159,11 +159,80 @@
 	[MobClick appTerminated];
 }
 
+//添加本地通知的调用方法
+#pragma mark -
+#pragma mark LocaltionNotifiction
+- (void)setScheduleNotifications
+{
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+//    NSString * identifier = [[NSBundle mainBundle] bundleIdentifier];
+//    NSLog(@"我要看看bundle %@",identifier);
+//    for (UILocalNotification * localNotification in [[UIApplication sharedApplication]scheduledLocalNotifications]) {
+//        NSString * identifierString_bigDay = [localNotification.userInfo objectForKey:@"bigDay"];
+//        NSString * identifierString_weekly = [localNotification.userInfo objectForKey:@"weekly"];
+//        
+//        if ([identifierString_bigDay isEqualToString:@"bigDay"]||[identifierString_weekly isEqualToString:@"weekly"]) {
+//            [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
+//            NSLog(@"取消了");
+//            break;
+//        }
+//    }
+    
+
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    
+    UILocalNotification * localNotice_bigDay = [[UILocalNotification alloc] init];
+    if (localNotice_bigDay != nil) {
+        NSLog(@"本地通知");
+        localNotice_bigDay.repeatInterval = kCFCalendarUnitDay;
+        localNotice_bigDay.fireDate = [NSDate dateWithTimeIntervalSinceReferenceDate:34200];
+        localNotice_bigDay.timeZone = [NSTimeZone defaultTimeZone];
+        localNotice_bigDay.alertBody = @"尚品顶级时尚品特卖活动，即将开始";
+        localNotice_bigDay.alertAction = @"进入活动";
+        localNotice_bigDay.applicationIconBadgeNumber = 1;
+        localNotice_bigDay.soundName = UILocalNotificationDefaultSoundName;
+        
+        //NSDateComponents
+        
+        NSString * bundleIdentifier = @"bigDay";
+        NSDictionary * inforDic = [NSDictionary dictionaryWithObject:bundleIdentifier forKey:@"bigDay"];
+        NSLog(@"看看infor = %@",inforDic);
+        localNotice_bigDay.userInfo = inforDic;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotice_bigDay];
+        [localNotice_bigDay release];
+    }
+    
+    UILocalNotification * localNotice_weekly = [[UILocalNotification alloc] init];
+    if (localNotice_weekly != nil) {
+        NSLog(@"本地通知");
+        //localNotice_weekly.repeatInterval = kCFCalendarUnitMinute;
+        localNotice_weekly.fireDate = [NSDate dateWithTimeIntervalSinceNow:604800];
+        localNotice_weekly.timeZone = [NSTimeZone defaultTimeZone];
+        localNotice_weekly.alertBody = @"尊贵的尚品会员，您已经一周未登陆尚品，期待您的光临";
+        localNotice_weekly.alertAction = @"进入尚品";
+        localNotice_weekly.applicationIconBadgeNumber = 1;
+        localNotice_weekly.soundName = UILocalNotificationDefaultSoundName;
+        
+        //NSDateComponents
+        
+        NSString * bundleIdentifier = @"weekly";
+        NSDictionary * inforDic = [NSDictionary dictionaryWithObject:bundleIdentifier forKey:@"weekly"];
+        NSLog(@"看看infor = %@",inforDic);
+        localNotice_weekly.userInfo = inforDic;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotice_weekly];
+        [localNotice_weekly release];
+    }
+    
+
+
+}
+
+# pragma mark -
 
 
 
-
-
+#pragma mark RemoteNotifictions
 //苹果推送通知的注册
 - (void)applicationDidBecomeActive:(UIApplication *)application{
 	[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
@@ -222,26 +291,8 @@
 }
 
 
-//- (void)CheckForUpgrade{
-//    
-//    NSLog(@"%s",__FUNCTION__);
-//    NSString *parameters = [NSString stringWithFormat:@""];
-//	NSString *encodedString = [URLEncode encodeUrlStr:parameters];
-//	NSString *md5Str = [MD5 md5Digest:[NSString stringWithFormat:@"%@%@",parameters,KEY]];
-//	NSString *superActUrlStr = [NSString stringWithFormat:@"%@=LoopPicList&parameters=%@&md5=%@&u=&w=",ADDRESS,encodedString,md5Str];                                     //新接口到了即改正
-//	NSLog(@"活动推荐:%@",superActUrlStr);
-//	
-//	NSURL *superActUrl = [[NSURL alloc] initWithString:superActUrlStr];
-//	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:superActUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
-//    
-//    loadingView = [[LoadingView alloc] initWithFrame:CGRectMake(0, 0, 320, 367)];//self.view.frame];
-//	[self.view addSubview:loadingView];
-//	superActConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-//	[request release];
-//	[superActUrl release];
-//}
 
-
+# pragma mark -
 
 
 
@@ -249,18 +300,6 @@
 {
 	return @"4da455eb112cf70b2b00003e";
 }
-
-#pragma mark  UIAlertViewDelegate Method
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//{
-//    if ([alertView tag] == 100) 
-//    {
-//        if (buttonIndex == 1) 
-//        {
-//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/cn/app/id432489082?mt=8"]];
-//        }
-//    }
-//}
 
 
 

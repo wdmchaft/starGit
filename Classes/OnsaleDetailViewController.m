@@ -67,33 +67,33 @@
 
 #pragma mark -
 #pragma mark 加入收藏 
--(void) addKeep
-{
-//    NSLog(@"    加入收藏                    ");
-//    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"收藏商品成功" message:nil delegate:self cancelButtonTitle:@"查看我的收藏" otherButtonTitles:@"继续购物", nil];
-//    alert.tag = 402;   
-//    [alert show];
-//    [alert release];
-
-	
-    OnlyAccount *account = [OnlyAccount defaultAccount];
-	NSString *parameters = [NSString stringWithFormat:@"%@|%@|%@|%@",account.account,catPrice,self.proNO,self.catNO,@"1"];
-	NSString *encodedString = [URLEncode encodeUrlStr:parameters];
-	NSString *md5Str = [MD5 md5Digest:[NSString stringWithFormat:@"%@%@",parameters,KEY]];
-	
-	//[MobClick event:[NSString stringWithFormat:@"MyPrompt"] label:willsale.Name];
-    
-	
-	NSString *addKeep = [NSString stringWithFormat:@"%@=AddFavorite&parameters=%@&md5=%@&u=%@&w=%@",ADDRESS,encodedString,md5Str,account.account,account.password];
-	NSLog(@"加入收藏:%@",addKeep);
-	NSURL *addKeepUrl = [[NSURL alloc] initWithString:addKeep];
-	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:addKeepUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-	loadingView = [[LoadingView alloc] initWithFrame:self.view.frame];
-	[self.view addSubview:loadingView];
-    addKeepConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-	[request release];
-	[addKeepUrl release];
-}
+//-(void) addKeep
+//{
+////    NSLog(@"    加入收藏                    ");
+////    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"收藏商品成功" message:nil delegate:self cancelButtonTitle:@"查看我的收藏" otherButtonTitles:@"继续购物", nil];
+////    alert.tag = 402;   
+////    [alert show];
+////    [alert release];
+//
+//	
+//    OnlyAccount *account = [OnlyAccount defaultAccount];
+//	NSString *parameters = [NSString stringWithFormat:@"%@|%@|%@|%@",account.account,catPrice,self.proNO,self.catNO,@"1"];
+//	NSString *encodedString = [URLEncode encodeUrlStr:parameters];
+//	NSString *md5Str = [MD5 md5Digest:[NSString stringWithFormat:@"%@%@",parameters,KEY]];
+//	
+//	//[MobClick event:[NSString stringWithFormat:@"MyPrompt"] label:willsale.Name];
+//    
+//	
+//	NSString *addKeep = [NSString stringWithFormat:@"%@=AddFavorite&parameters=%@&md5=%@&u=%@&w=%@",ADDRESS,encodedString,md5Str,account.account,account.password];
+//	NSLog(@"加入收藏:%@",addKeep);
+//	NSURL *addKeepUrl = [[NSURL alloc] initWithString:addKeep];
+//	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:addKeepUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+//	loadingView = [[LoadingView alloc] initWithFrame:self.view.frame];
+//	[self.view addSubview:loadingView];
+//    addKeepConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+//	[request release];
+//	[addKeepUrl release];
+//}
 
 
 
@@ -239,8 +239,8 @@
 	self.skuNo = sku.skuNo;
 	colTextfield.text = sku.color;
 	sizeTextfield.text = sku.size;
-	quantityLabel.text = [NSString stringWithFormat:@"剩余量:%@",sku.quantity];
-	VIPLabel.text = [NSString stringWithFormat:@"VIP限时价:%@",sku.limitedprice];
+	quantityLabel.text = [NSString stringWithFormat:@"原价:%@",sku.quantity];
+	VIPLabel.text = [NSString stringWithFormat:@"限时价:%@",sku.limitedprice];
 	self.smallImageArray = [sku.image componentsSeparatedByString:@","];
 	self.bigImageArray = [sku.bigimg componentsSeparatedByString:@","];
 	pageControl.currentPage = 0;
@@ -375,9 +375,9 @@
 	titleLabel.backgroundColor = [UIColor clearColor];
 	[limitBuyListView addSubview:titleLabel];
 	
-	// 专柜价
+	// 原价
 	shoppePriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(115.0f, 30.0f, 200.0f, 20.0f)];
-	shoppePriceLabel.text = @"专柜价:";
+	shoppePriceLabel.text = @"原价:";
 	shoppePriceLabel.font = [UIFont boldSystemFontOfSize:14.0f];
 	shoppePriceLabel.textColor = [UIColor whiteColor];;
 	shoppePriceLabel.backgroundColor = [UIColor clearColor];
@@ -390,7 +390,7 @@
 	
 	//限时价
 	VIPLabel = [[UILabel alloc] initWithFrame:CGRectMake(115.0f, 50.0f, 200.0f, 20.0f)];
-	VIPLabel.text = @"VIP限时价:";
+	VIPLabel.text = @"限时价:";
 	VIPLabel.font = [UIFont boldSystemFontOfSize:14.0f];
 	VIPLabel.textColor = [UIColor whiteColor];;
 	VIPLabel.backgroundColor = [UIColor clearColor];
@@ -477,19 +477,19 @@
 	[buyButton addTarget:self action:@selector(buy) forControlEvents:UIControlEventTouchUpInside];
 	[limitBuyListView addSubview:buyButton];
     
-    addKeepButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	addKeepButton.frame = CGRectMake(156.0f, 140.0f, 74, 31);
-    addKeepButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    [addKeepButton setTitle:@"收藏" forState:UIControlStateNormal];
-    addKeepButton.showsTouchWhenHighlighted = YES;
-    addKeepButton.layer.masksToBounds = YES;
-    addKeepButton.layer.cornerRadius = 2.0f;
-    [addKeepButton setBackgroundImage:[UIImage imageNamed:@"shoucang.png"] forState:UIControlStateNormal];
-    [addKeepButton setBackgroundImage:[UIImage imageNamed:@"shoucanglight.png"] forState:UIControlStateHighlighted];
-    [addKeepButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [addKeepButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-	[addKeepButton addTarget:self action:@selector(addKeep) forControlEvents:UIControlEventTouchUpInside];
-	[limitBuyListView addSubview:addKeepButton];
+//    addKeepButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//	addKeepButton.frame = CGRectMake(156.0f, 140.0f, 74, 31);
+//    addKeepButton.titleLabel.font = [UIFont systemFontOfSize:14];
+//    [addKeepButton setTitle:@"收藏" forState:UIControlStateNormal];
+//    addKeepButton.showsTouchWhenHighlighted = YES;
+//    addKeepButton.layer.masksToBounds = YES;
+//    addKeepButton.layer.cornerRadius = 2.0f;
+//    [addKeepButton setBackgroundImage:[UIImage imageNamed:@"shoucang.png"] forState:UIControlStateNormal];
+//    [addKeepButton setBackgroundImage:[UIImage imageNamed:@"shoucanglight.png"] forState:UIControlStateHighlighted];
+//    [addKeepButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [addKeepButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+//	[addKeepButton addTarget:self action:@selector(addKeep) forControlEvents:UIControlEventTouchUpInside];
+//	[limitBuyListView addSubview:addKeepButton];
 
 	
 	UIView *pageView = [[UIView alloc] initWithFrame:CGRectMake(-5, 183, 330, 70.0f)];
@@ -672,7 +672,7 @@
 		titleLabel.text = [NSString stringWithFormat:@"%@",[Trim trim:[productname stringValue]]];
 		self.title = titleLabel.text;
 		GDataXMLElement *marketprice = [[root elementsForName:@"marketprice"] objectAtIndex:0];		//专柜价
-		NSString *rackrate = [NSString stringWithFormat:@"专柜价:%@",[Trim trim:[marketprice stringValue]]];
+		NSString *rackrate = [NSString stringWithFormat:@"原价:%@",[Trim trim:[marketprice stringValue]]];
 		shoppePriceLabel.text = rackrate;
 		float width = [self contentWidth:rackrate];
 		lineThrough.frame = CGRectMake(115, 40, width, 1);
@@ -762,7 +762,7 @@
 		bigPageControl.numberOfPages = [self.bigImageArray count];
 		
 		self.skuNo = sku.skuNo;
-		VIPLabel.text = [NSString stringWithFormat:@"VIP限时价:%@",sku.limitedprice];
+		VIPLabel.text = [NSString stringWithFormat:@"限时价:%@",sku.limitedprice];
 		catPrice = sku.limitedprice;
         quantityLabel.text = [NSString stringWithFormat:@"剩余数量:%@",sku.quantity];
 		scrollVC.contentSize = CGSizeMake(100 * [self.smallImageArray count], 133);
@@ -985,27 +985,27 @@
 		[buyProductConnection release];
 	}
 	//加入收藏 解析
-    if (addKeepConnection == connection) 
-    {
-        NSLog(@"解析 来自  加入收藏链接  的 返回数据");
-        
-        NSString *str = [NSString stringWithCString:[self.receivedData bytes] encoding:NSASCIIStringEncoding];
-        char flag = [str characterAtIndex:0];
-        if(flag == '1')
-        {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"收藏商品成功" message:nil delegate:self cancelButtonTitle:@"查看我的收藏" otherButtonTitles:@"继续购物", nil];
-        alert.tag = 401;   
-        [alert show];
-        [alert release];
-        }
-        else
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""	message:@"加入收藏失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-        }
-
-    }
+//    if (addKeepConnection == connection) 
+//    {
+//        NSLog(@"解析 来自  加入收藏链接  的 返回数据");
+//        
+//        NSString *str = [NSString stringWithCString:[self.receivedData bytes] encoding:NSASCIIStringEncoding];
+//        char flag = [str characterAtIndex:0];
+//        if(flag == '1')
+//        {
+//        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"收藏商品成功" message:nil delegate:self cancelButtonTitle:@"查看我的收藏" otherButtonTitles:@"继续购物", nil];
+//        alert.tag = 401;   
+//        [alert show];
+//        [alert release];
+//        }
+//        else
+//        {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""	message:@"加入收藏失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//            [alert show];
+//            [alert release];
+//        }
+//
+//    }
     self.navigationItem.leftBarButtonItem.enabled = YES;
 	self.navigationItem.rightBarButtonItem.enabled = YES;
 	self.receivedData = nil;

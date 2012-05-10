@@ -159,8 +159,9 @@
     
 	
     
-    NSArray * functionAarrayUp = [[NSArray alloc] initWithObjects:@"我的订单",@"我的收藏",@"我的提醒", nil];
-    NSArray * functionAarrayDawn = [[NSArray alloc] initWithObjects:@"个人信息",@"收货地址",@"修改密码",nil];
+    //NSArray * functionAarrayUp = [[NSArray alloc] initWithObjects:@"我的订单",@"我的收藏",@"我的提醒", nil];
+    NSArray * functionAarrayUp = [[NSArray alloc] initWithObjects:@"我的订单",@"我的提醒", nil];
+    NSArray * functionAarrayDawn = [[NSArray alloc] initWithObjects:@"个人信息",@"收货人信息",@"修改密码",nil];
     functionAarray = [[NSArray alloc] initWithObjects:functionAarrayUp,functionAarrayDawn,nil];
     [functionAarrayUp release];
     [functionAarrayDawn release];

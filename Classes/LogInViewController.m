@@ -191,6 +191,7 @@ static LogInViewController *loginVC = nil;
 	passwordTF.placeholder = @" 请输入密码";
 	passwordTF.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	passwordTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    passwordTF.keyboardType = UIKeyboardTypeURL;
     passwordTF.keyboardAppearance = UIKeyboardAppearanceAlert;
     passwordTF.returnKeyType = UIReturnKeyJoin;
 	passwordTF.clearButtonMode = UITextFieldViewModeWhileEditing;
