@@ -67,7 +67,7 @@
     //backScrView.delegate = self;
 
     
-    UIImageView * rectImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 298, 376)];
+    UIImageView * rectImageView = [[UIImageView alloc] initWithFrame:CGRectMake(11, 10, 298, 376)];
     UIImage * aboutImage = [[UIImage imageNamed:@"AboutS.png"]stretchableImageWithLeftCapWidth:0.0f topCapHeight:14.0f];
     rectImageView.image = aboutImage;
     //加圆角
