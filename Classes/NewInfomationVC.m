@@ -131,13 +131,15 @@
     scrollImage.showsHorizontalScrollIndicator = NO;
     scrollImage.backgroundColor = [UIColor clearColor];
     scrollImage.clipsToBounds = NO;
+    //scrollImage.scrollIndicatorInsets = UIEdgeInsetsMake(0, 320, 0, 0);
+    [scrollImage setContentOffset:CGPointMake(320, 0) animated:NO];
     scrollImage.delegate = self;
     [mainView addSubview:scrollImage];
 
     
     
     NSInteger imageNum ;
-    for (imageNum = 0; imageNum <[superActArray count]; imageNum++)
+    for (imageNum = 0; imageNum <scrollImageNum; imageNum++)
     {
         TouchImagView * showSellActView = [[TouchImagView alloc] initWithFrame:CGRectMake(320*imageNum, 0, 320, 220)];
         showSellActView.tag = imageNum+300;
@@ -201,7 +203,6 @@
         [scrollImage setContentOffset:CGPointMake(scrollImage.contentOffset.x+320, scrollImage.contentOffset.y) animated:YES];
     }
 }
-
 
 #pragma mark -
 #pragma mark 登陆
@@ -280,33 +281,44 @@
 //    [pageControl updateDots];
     int pagscroll  = scrollImage.contentOffset.x;
     
-    if (pagscroll/320 == superCount) 
-    {
-        scrollImage.contentOffset = CGPointMake(0, 0);
-    }
+//    if (pagscroll/320 == superCount) 
+//    {
+//        scrollImage.contentOffset = CGPointMake(0, 0);
+//    }
     if (pagscroll%320 ==0) {
-        if (pagscroll/320==superCount) {
+        if (pagscroll/320==superCount+1) {
             pageControl.currentPage = 0;
+            scrollImage.contentOffset = CGPointMake(320, 0);
         }else
-            pageControl.currentPage = pagscroll/320;
+            if (pagscroll ==0) {
+                pageControl.currentPage = superCount;
+                scrollImage.contentOffset = CGPointMake(320*superCount, 0);
+            }
+            pageControl.currentPage = pagscroll/320-1;
         
         [pageControl updateDots];
     }
 
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    int pagscroll  = scrollImage.contentOffset.x;
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+   int pagscroll  = scrollImage.contentOffset.x;
     //实现轮播的关键语句
-    if (pagscroll/320 == superCount) 
-    {
-        scrollImage.contentOffset = CGPointMake(0, 0);
-    }
+//    if (pagscroll/320 == superCount) 
+//    {
+//        scrollImage.contentOffset = CGPointMake(0, 0);
+//    }
     if (pagscroll%320 ==0) {
-        if (pagscroll/320==superCount) {
+        if (pagscroll/320==superCount+1) {
             pageControl.currentPage = 0;
-        }else
-            pageControl.currentPage = pagscroll/320;
+            scrollImage.contentOffset = CGPointMake(320, 0);
+        }else 
+            if (pagscroll ==0) {
+                pageControl.currentPage = superCount;
+                scrollImage.contentOffset = CGPointMake(320*superCount, 0);
+            }
+            pageControl.currentPage = pagscroll/320-1;
         
         [pageControl updateDots];
     }
@@ -450,7 +462,7 @@
         [infoConnection release];
         self.receivedData = nil;
     
-        [self setPageControl];
+        //[self setPageControl];
         [self loadSuperAct];
         [self initTimer];
 
@@ -493,8 +505,9 @@
         superActArray  = [[NSMutableArray alloc] init];
         [superActArray addObjectsFromArray:mutableSuperActArray];
         [superActArray addObject:[mutableSuperActArray objectAtIndex:0]];
-        NSLog(@"self.superActArray    count = %d",[self.superActArray count]);
-        superCount = [self.superActArray count]-1;
+        [superActArray insertObject:[mutableSuperActArray objectAtIndex:(mutableSuperActArray.count-1)] atIndex:0];
+        NSLog(@"self.superActArray    count = %d    %@",[self.superActArray count],superActArray);
+        superCount = [self.superActArray count]-2;
         [mutableSuperActArray release];
         [self loadImageNew];
         [document release];

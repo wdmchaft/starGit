@@ -185,10 +185,10 @@
     UILocalNotification * localNotice_bigDay = [[UILocalNotification alloc] init];
     if (localNotice_bigDay != nil) {
         NSLog(@"本地通知");
-        localNotice_bigDay.repeatInterval = kCFCalendarUnitDay;
-        localNotice_bigDay.fireDate = [NSDate dateWithTimeIntervalSinceReferenceDate:34200];
+        localNotice_bigDay.repeatInterval = NSDayCalendarUnit;
         localNotice_bigDay.timeZone = [NSTimeZone defaultTimeZone];
-        localNotice_bigDay.alertBody = @"尚品顶级时尚品特卖活动，即将开始";
+        localNotice_bigDay.fireDate = [NSDate dateWithTimeIntervalSinceReferenceDate:1.5*60*60];
+        localNotice_bigDay.alertBody = @"尚品顶级时尚品特卖活动即将开始，敬请关注";
         localNotice_bigDay.alertAction = @"进入活动";
         localNotice_bigDay.applicationIconBadgeNumber = 1;
         localNotice_bigDay.soundName = UILocalNotificationDefaultSoundName;
@@ -221,6 +221,7 @@
         NSLog(@"看看infor = %@",inforDic);
         localNotice_weekly.userInfo = inforDic;
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotice_weekly];
+        [[UIApplication sharedApplication] applicationState] ;
         [localNotice_weekly release];
     }
     
@@ -290,10 +291,7 @@
 	[alertView release];
 }
 
-
-
 # pragma mark -
-
 
 
 -(NSString *)appKey
