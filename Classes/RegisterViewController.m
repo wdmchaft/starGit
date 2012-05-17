@@ -764,10 +764,11 @@ static RegisterViewController *registerVC = nil;
    
 }
 
-
 -(void)getAccountInfo
 {
-	OnlyAccount *account = [OnlyAccount defaultAccount];
+	
+    NSLog(@"HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH------次");
+    OnlyAccount *account = [OnlyAccount defaultAccount];
 	NSString *parameters = [NSString stringWithFormat:@"%@",account.account];
 	NSString *encodedString = [URLEncode encodeUrlStr:parameters];
 	NSString *md5Str = [MD5 md5Digest:[NSString stringWithFormat:@"%@%@",parameters,KEY]];
@@ -789,7 +790,7 @@ static RegisterViewController *registerVC = nil;
 #pragma mark NSURLConnection delegate
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-	NSLog(@"注册请求 获得服务器 回应");
+	NSLog(@" 获得服务器 回应");
 	NSMutableData * nData = [[NSMutableData alloc] init];
     self.receivedData = nData;
     [nData release];
@@ -827,12 +828,14 @@ static RegisterViewController *registerVC = nil;
 		{
 			[MobClick event:@"Register"];
 			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"恭喜您成为尚品会员" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            alert.tag = 510;
 			[alert show];
 			[alert release];
 		}
 		else
 		{
 			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"注册失败" message:str delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            alert.tag = 511;
 			[alert show];
 			[alert release];
 		}
@@ -875,6 +878,7 @@ static RegisterViewController *registerVC = nil;
 		{
 			usleep(500000);
 			[self getAccountInfo];
+            NSLog(@"这是重新开始发送请求吗？  str = %@",str);
 		}
 		else 
 		{
@@ -894,6 +898,10 @@ static RegisterViewController *registerVC = nil;
             
             GDataXMLElement * gender = [[root elementsForName:@"gender"] objectAtIndex:0];   //用户性别
             account.gender = [gender stringValue];//NSNumber
+            
+            GDataXMLElement  * level = [[root elementsForName:@"level"]objectAtIndex:0];
+            account.leavelStr = [level stringValue];
+            
             NSLog(@"用户性别 ：%@",account.gender);
 			
 			NSLog(@"real name : %@",account.realName);

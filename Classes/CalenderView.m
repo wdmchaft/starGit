@@ -223,7 +223,7 @@
 	NSLog(@"我的提醒保存:%@",myPromptSave);
 	NSURL *myPromptSaveUrl = [[NSURL alloc] initWithString:myPromptSave];
 	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:myPromptSaveUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-	loadingView = [[LoadingView alloc] initWithFrame:self.frame];
+	loadingView = [[LoadingView alloc] initWithFrame:m_tableView.frame];
 	[self addSubview:loadingView];
 	myPromptSaveConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 	[request release];

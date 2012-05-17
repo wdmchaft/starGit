@@ -73,13 +73,14 @@
     
     
     NSNotificationCenter * comeKeepNotice = [NSNotificationCenter defaultCenter];
-    [comeKeepNotice addObserver:self selector:@selector(comeKeep) name:@"comeKeep" object:nil];
-    [comeKeepNotice addObserver:self selector:@selector(loadMyAcountData) name:@"LoginSuccess" object:nil];
+    //[comeKeepNotice addObserver:self selector:@selector(comeKeep) name:@"comeKeep" object:nil];
+    [comeKeepNotice addObserver:self selector:@selector(regis_login_loadMyAccountData) name:@"LoginSuccess" object:nil];
 }
 
 //获取用户个人信息  -----
 - (void)viewDidLoadData
 {
+    NSLog(@"%s",__FUNCTION__);
     //[super viewDidLoad];
 	OnlyAccount *account = [OnlyAccount defaultAccount];
 	NSString *parameters = [NSString stringWithFormat:@"%@",account.account];
@@ -185,23 +186,22 @@
 }
 
 
-
 #pragma mark -
 #pragma mark 接受通知 ，进入我的收藏 方法
--(void)comeKeep
-{
-    if (postNum%2==1) 
-    {
-        if (myKeepListVC == nil) {
-                myKeepListVC = [[MyKeepListViewController alloc] initWithStyle:UITableViewStylePlain];
-            }
-        if (self.navigationController.visibleViewController != myKeepListVC) {
-             [self.navigationController pushViewController:myKeepListVC animated:YES];
-        }    
-        [myKeepListVC getMyKeepList];
-    }
-    postNum++;
-}
+//-(void)comeKeep
+//{
+//    if (postNum%2==1) 
+//    {
+//        if (myKeepListVC == nil) {
+//                myKeepListVC = [[MyKeepListViewController alloc] initWithStyle:UITableViewStylePlain];
+//            }
+//        if (self.navigationController.visibleViewController != myKeepListVC) {
+//             [self.navigationController pushViewController:myKeepListVC animated:YES];
+//        }    
+//        [myKeepListVC getMyKeepList];
+//    }
+//    postNum++;
+//}
 
 
 
@@ -220,7 +220,7 @@
     [myOrderVC release];
     myOrderVC = nil;
     
-    myKeepListVC = nil;
+    //myKeepListVC = nil;
     
 }
 
@@ -228,8 +228,60 @@
 #pragma mark  MyAcountLoginDelegate method
 - (void)loadMyAcountData
 {
+    NSLog(@"登陆调用这个方法！");    
     [self viewDidLoadData];
 }
+
+
+#pragma  mark -
+#pragma  mark  注册并登陆成功后发起的通知方法
+- (void)regis_login_loadMyAccountData
+{
+    OnlyAccount * account = [OnlyAccount defaultAccount];
+    
+    if ([account.realName isEqualToString:@"(null)"]) {
+        userNameLabel.text = @"";
+    }else
+    userNameLabel.text = account.realName;
+    
+    userEmailLable.text = account.account;
+        
+    if([[account gender] isEqualToString:@"1"])
+    {
+        
+        userSexStr = @"男";
+        headPhotoImgV.image	= [UIImage imageNamed:@"Male.png"];
+    }
+    else if([[account gender] isEqualToString:@"0"])
+    {
+        userSexStr = @"女";
+        headPhotoImgV.image	= [UIImage imageNamed:@"Female.png"];
+    }
+    else
+    {
+        userSexStr = @"";
+        headPhotoImgV.image	= [UIImage imageNamed:@"NoneGender.png"];
+    }
+
+    NSString *leavelStr =account.leavelStr;
+    if([leavelStr isEqualToString:@"0003"])
+    {
+        VIPImgV.image = [UIImage imageNamed:@"VIP3.png"];
+        userLevel.text = @"白金会员";
+    }
+    else if([leavelStr isEqualToString:@"0002"])
+    {
+        VIPImgV.image = [UIImage imageNamed:@"VIP2.png"];
+        userLevel.text = @"黄金会员";
+    }
+    else
+    {
+        VIPImgV.image = [UIImage imageNamed:@"VIP1.png"];
+        userLevel.text = @"正式会员";
+    }
+    
+}
+
 
 #pragma mark - 
 #pragma mark getEmailDelegate method
@@ -321,8 +373,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"选中的是第 %d 行",indexPath.section*3+indexPath.row);
-    int  selectRow = indexPath.section*3+indexPath.row;
+    //NSLog(@"选中的是第 %d 行",indexPath.section*3+indexPath.row);
+    //int  selectRow = indexPath.section*3+indexPath.row;
+    NSInteger selectRow = indexPath.section*10 + indexPath.row*1;
     switch (selectRow) {
         case 0:
             if (myOrderVC == nil) {
@@ -333,24 +386,24 @@
 //            [myOrderVC release];
 //            myOrderVC = nil;
             break;
+//        case 1:
+//            if (myKeepListVC == nil) {
+//                myKeepListVC = [[MyKeepListViewController alloc] initWithStyle:UITableViewStylePlain];
+//            }
+//            [self.navigationController pushViewController:myKeepListVC animated:YES];
+//            [myKeepListVC getMyKeepList];
+//            break;
         case 1:
-            if (myKeepListVC == nil) {
-                myKeepListVC = [[MyKeepListViewController alloc] initWithStyle:UITableViewStylePlain];
-            }
-            [self.navigationController pushViewController:myKeepListVC animated:YES];
-            [myKeepListVC getMyKeepList];
-            break;
-        case 2:
             [self showMyAlert];
            break;
-        case 3:
+        case 10:
             [self showMyInfo];
             break;
-        case 4:
+        case 11:
             [self getAddressInfo];
             //[self showAddress];
             break;
-        case 5:
+        case 12:
             [self doEditPassWord];
             break;
     
@@ -388,8 +441,9 @@
 {
     if (userInfoVC == nil) {
          userInfoVC = [[UserInfoViewController alloc] init];
-        [userInfoVC loadmyInfo];
+     
     }
+    [userInfoVC loadmyInfo];
     userInfoVC.sexLabel.text = [NSString stringWithFormat:@"性别: %@",userSexStr];
 	[self.navigationController pushViewController:userInfoVC animated:YES];
 	//[userInfoVC release];
@@ -514,7 +568,7 @@
 		else
 		{
 			VIPImgV.image = [UIImage imageNamed:@"VIP1.png"];
-            userLevel.text = @"普通会员";
+            userLevel.text = @"正式会员";
 		}
 		GDataXMLElement *gender = [[root elementsForName:@"gender"] objectAtIndex:0];//性别
         if([[gender stringValue] isEqualToString:@"1"])
@@ -530,7 +584,8 @@
 		}
 		else
 		{
-			headPhotoImgV.image	= [UIImage imageNamed:@"NoneGender.png"];
+			userSexStr = @"";
+            headPhotoImgV.image	= [UIImage imageNamed:@"NoneGender.png"];
 		}
 		[myAccountConnection release];
 	}

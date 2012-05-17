@@ -160,27 +160,27 @@
             
         }
     }
-    else
-    {
-        if (buttonIndex == 0)
-        {
-            [self.tabBarController setSelectedIndex:2];
-            [changeImagDelegate changeMyAccountImagNum:2];
-            NSLog(@"%s",__FUNCTION__);
-            [self performSelector:@selector(comeKeep) withObject:nil afterDelay:0.3f];
-        }
-    }    
+//    else
+//    {
+//        if (buttonIndex == 0)
+//        {
+//            [self.tabBarController setSelectedIndex:2];
+//            [changeImagDelegate changeMyAccountImagNum:2];
+//            NSLog(@"%s",__FUNCTION__);
+//            [self performSelector:@selector(comeKeep) withObject:nil afterDelay:0.3f];
+//        }
+//    }    
 }
 
 //注册进入“我的收藏的通知”
-- (void)comeKeep
-{
-    //注册通知中心，接收通知的类为 MyAccountViewController
-    NSNotificationCenter * comeKeepNotice = [NSNotificationCenter defaultCenter];
-    NSString * const  comeKeepNotifiction = @"comeKeep";
-    [comeKeepNotice   postNotificationName:comeKeepNotifiction object:nil];
-    NSLog(@"注册通知");
-}
+//- (void)comeKeep
+//{
+//    //注册通知中心，接收通知的类为 MyAccountViewController
+//    NSNotificationCenter * comeKeepNotice = [NSNotificationCenter defaultCenter];
+//    NSString * const  comeKeepNotifiction = @"comeKeep";
+//    [comeKeepNotice   postNotificationName:comeKeepNotifiction object:nil];
+//    NSLog(@"注册通知");
+//}
 
 - (void)hideKeepButton
 {

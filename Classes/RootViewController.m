@@ -182,8 +182,8 @@
 - (void)tabBarDidSelectViewController:(UIViewController *)viewController
 {
     
-     LogInViewController *loginViewController = [LogInViewController defaultLoginViewController];
-     [loginViewController readUserName];
+    LogInViewController *loginViewController = [LogInViewController defaultLoginViewController];
+    [loginViewController readUserName];
 	loginViewController.delegate = self;
     loginViewController.MyAcountDelegate = myAccountVC;
 	if(loginViewController.haslogin)

@@ -39,7 +39,7 @@
 	if([fileManager fileExistsAtPath:filename])
 	{
 		userNameTF.text = [[NSKeyedUnarchiver unarchiveObjectWithFile:filename] objectAtIndex:0];
-		//passwordTF.text = [[NSKeyedUnarchiver unarchiveObjectWithFile:filename] objectAtIndex:1];
+		passwordTF.text = [[NSKeyedUnarchiver unarchiveObjectWithFile:filename] objectAtIndex:1];
 	}
 }
 
@@ -66,7 +66,7 @@
 {
 	[self dismissModalViewControllerAnimated:YES];
     //userNameTF.text = nil;
-    passwordTF.text = nil;
+    //passwordTF.text = nil;
     
     //发送定时器开始 的 通知  接收类为shangpindelegate
     NSNotificationCenter * noticeCenter = [NSNotificationCenter defaultCenter];
@@ -216,7 +216,7 @@ static LogInViewController *loginVC = nil;
     loginButton.layer.masksToBounds = YES;
     loginButton.layer.cornerRadius = 3.0f;
     loginButton.layer.borderWidth = 0.2f;
-	[loginButton addTarget:self action:@selector(doLogin) forControlEvents:UIControlEventTouchUpInside];
+	[loginButton addTarget:self action:@selector(willDoLogin) forControlEvents:UIControlEventTouchUpInside];
 	[backGroundView addSubview:loginButton];
 	
 	UIButton *forgetButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -287,14 +287,18 @@ static LogInViewController *loginVC = nil;
 }
 
 
--(void) doLogin
+
+static NSString * userName;
+static NSString * password;
+
+-(void) willDoLogin
 {
 	[self keyBoardReturn];
 	//userNameTF.text = ACCOUNT;				//以后去掉这两行
 	//passwordTF.text = PASSWORD;
 	
-	NSString *userName = [Trim trim:userNameTF.text];
-	NSString *password = [Trim trim:passwordTF.text];
+	userName = [Trim trim:userNameTF.text];
+	password = [Trim trim:passwordTF.text];
 	if([userName length] == 0)
 	{
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"用户名不能为空" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
@@ -309,12 +313,12 @@ static LogInViewController *loginVC = nil;
 	}
 	else
 	{
-		OnlyAccount *account = [OnlyAccount defaultAccount];
-		account.account = userName;
-		account.password = password;
-		ShangPinAppDelegate *shangPin = (ShangPinAppDelegate *)[[UIApplication sharedApplication] delegate];
-		shangPin.userName = account.account;
-		shangPin.password = account.password;
+//		OnlyAccount *account = [OnlyAccount defaultAccount];
+//		account.account = userName;
+//		account.password = password;
+//		ShangPinAppDelegate *shangPin = (ShangPinAppDelegate *)[[UIApplication sharedApplication] delegate];
+//		shangPin.userName = account.account;
+//		shangPin.password = account.password;
 		if(remoteNotification == TRUE)
 		{
 			remoteNotification = FALSE;
@@ -322,24 +326,62 @@ static LogInViewController *loginVC = nil;
 			[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 		}
 		[self saveUserName];
-		
-		NSString *parameters = [NSString stringWithFormat:@"%@|%@|0",userName,password];
-		NSString *encodedString = [URLEncode encodeUrlStr:parameters];
-		NSString *md5Str = [MD5 md5Digest:[NSString stringWithFormat:@"%@%@",parameters,KEY]];
-		NSString *loginUrlStr = [NSString stringWithFormat:@"%@=Login&parameters=%@&md5=%@&u=%@&w=%@",ADDRESS,encodedString,md5Str,account.account,account.password];
-		NSLog(@"登录接口:%@",loginUrlStr);
-		
-		NSURL *loginUrl = [[NSURL alloc] initWithString:loginUrlStr];
-		NSURLRequest *request = [[NSURLRequest alloc] initWithURL:loginUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-		loadingView = [[LoadingView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-		[self.view addSubview:loadingView];
-		loginConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-		[request release];
-		[loginUrl release];
+		[self doLogin];
+        
+//		NSString *parameters = [NSString stringWithFormat:@"%@|%@|0",userName,password];
+//		NSString *encodedString = [URLEncode encodeUrlStr:parameters];
+//		NSString *md5Str = [MD5 md5Digest:[NSString stringWithFormat:@"%@%@",parameters,KEY]];
+//		NSString *loginUrlStr = [NSString stringWithFormat:@"%@=Login&parameters=%@&md5=%@&u=%@&w=%@",ADDRESS,encodedString,md5Str,account.account,account.password];
+//		NSLog(@"登录接口:%@",loginUrlStr);
+//		
+//		NSURL *loginUrl = [[NSURL alloc] initWithString:loginUrlStr];
+//		NSURLRequest *request = [[NSURLRequest alloc] initWithURL:loginUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+//		loadingView = [[LoadingView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+//		[self.view addSubview:loadingView];
+//		loginConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+//		[request release];
+//		[loginUrl release];
         
 	}
 	
 }
+
+- (void)doLogin
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]; 
+	NSString *filename = [path stringByAppendingPathComponent:@"userEmail"];
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	if([fileManager fileExistsAtPath:filename])
+	{
+		userName = [[NSKeyedUnarchiver unarchiveObjectWithFile:filename] objectAtIndex:0];
+		password = [[NSKeyedUnarchiver unarchiveObjectWithFile:filename] objectAtIndex:1];
+	}
+
+    OnlyAccount *account = [OnlyAccount defaultAccount];
+    account.account = userName;
+    account.password = password;
+    ShangPinAppDelegate *shangPin = (ShangPinAppDelegate *)[[UIApplication sharedApplication] delegate];
+    shangPin.userName = account.account;
+    shangPin.password = account.password;
+
+    
+    NSString *parameters = [NSString stringWithFormat:@"%@|%@|0",userName,password];
+    NSString *encodedString = [URLEncode encodeUrlStr:parameters];
+    NSString *md5Str = [MD5 md5Digest:[NSString stringWithFormat:@"%@%@",parameters,KEY]];
+    NSString *loginUrlStr = [NSString stringWithFormat:@"%@=Login&parameters=%@&md5=%@&u=%@&w=%@",ADDRESS,encodedString,md5Str,account.account,account.password];
+    NSLog(@"登录接口:%@",loginUrlStr);
+    
+    NSURL *loginUrl = [[NSURL alloc] initWithString:loginUrlStr];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:loginUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    loadingView = [[LoadingView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    [self.view addSubview:loadingView];
+    loginConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [request release];
+    [loginUrl release];
+
+
+}
+
 
 -(void) doForgetPassword
 {
@@ -356,7 +398,7 @@ static LogInViewController *loginVC = nil;
 -(void) doRegister
 {
 	[self keyBoardReturn];
-	passwordTF.text = nil;
+	//passwordTF.text = nil;
     if(registerVC == nil)
 	{
 		registerVC = [RegisterViewController defaultRegisterViewController];
@@ -458,7 +500,7 @@ static LogInViewController *loginVC = nil;
 		[delegate didLoginSucess];
          [MyAcountDelegate loadMyAcountData];
 	}
-	passwordTF.text = nil;
+	//passwordTF.text = nil;
 	self.receivedData = nil;
 }
 
@@ -469,7 +511,7 @@ static LogInViewController *loginVC = nil;
 	[loadingView release];
 	[connection release];
 	
-    passwordTF.text = nil;
+    //passwordTF.text = nil;
     self.receivedData = nil;
 	
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"连接超时，请检查网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
@@ -480,13 +522,14 @@ static LogInViewController *loginVC = nil;
 #pragma mark -
 #pragma mark UIAlertViewDelegate
 //未使用
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	if(buttonIndex == 0)
-	{
-        [self getAccountInfo];
-	}
-}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//	if(buttonIndex == 0)
+//	{
+//        NSLog(@"是否也在加载这个方法？");
+//        [self getAccountInfo];
+//	}
+//}
 
 #pragma mark -
 #pragma mark 释放相关

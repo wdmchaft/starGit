@@ -48,6 +48,8 @@ extern NSString * const StarTimerNotification;
 	
 	ForgetPasswordViewController *forgetPasswordVC;		//找回密码 视图控制器
 	RegisterViewController *registerVC;					//注册    视图控制器
+    
+    int maxConnectionCount;					//登录的最大次数限制
 }
 
 @property (nonatomic, assign) id<LoginDelegate> delegate;

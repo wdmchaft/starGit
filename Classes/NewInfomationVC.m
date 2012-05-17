@@ -506,7 +506,6 @@
         [superActArray addObjectsFromArray:mutableSuperActArray];
         [superActArray addObject:[mutableSuperActArray objectAtIndex:0]];
         [superActArray insertObject:[mutableSuperActArray objectAtIndex:(mutableSuperActArray.count-1)] atIndex:0];
-        NSLog(@"self.superActArray    count = %d    %@",[self.superActArray count],superActArray);
         superCount = [self.superActArray count]-2;
         [mutableSuperActArray release];
         [self loadImageNew];

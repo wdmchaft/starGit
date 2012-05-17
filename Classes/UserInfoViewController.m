@@ -93,7 +93,7 @@
     sexLabel.backgroundColor = [UIColor clearColor];
 	sexLabel.numberOfLines = 0;
 	sexLabel.textColor = WORDCOLOR;
-	//sexLable.text = @"性别: 女";
+	sexLabel.text = @"性别: ";
 	[userInfoView addSubview:sexLabel];
 
     

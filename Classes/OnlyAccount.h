@@ -15,13 +15,14 @@
 	NSString *realName;		//真实姓名
 	NSString *password;		//密码
     NSString * gender;        //性别
+    NSString * leavelStr;      //会员级别
 }
 
 @property(nonatomic,copy) NSString *account;
 @property(nonatomic,copy) NSString *realName;
 @property(nonatomic,copy) NSString *password;
 @property(nonatomic,copy) NSString *gender;
-
+@property(nonatomic,copy) NSString * leavelStr;
 +(id) defaultAccount;
 
 

@@ -199,7 +199,7 @@
 	firstLb.text = item.Name;
 	
 	UILabel *secondLb = (UILabel *)[cell.contentView viewWithTag:201];
-	secondLb.text = [NSString stringWithFormat:@"专柜价:%@",item.rackrate];
+	secondLb.text = [NSString stringWithFormat:@"原价:%@",item.rackrate];
 	
 	float width = [self contentWidth:secondLb.text];
 	UILabel *line = (UILabel *)[cell.contentView viewWithTag:199];

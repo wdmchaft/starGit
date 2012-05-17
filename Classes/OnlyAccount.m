@@ -10,7 +10,7 @@
 
 
 @implementation OnlyAccount
-@synthesize account,realName,password,gender;
+@synthesize account,realName,password,gender,leavelStr;
 
 static OnlyAccount *myAccount = nil;
 
@@ -29,6 +29,7 @@ static OnlyAccount *myAccount = nil;
 	[account release];
 	[realName release];
     [gender release];
+    [leavelStr release];
 	[super dealloc];
 }
 

@@ -327,7 +327,7 @@ static TellFriendViewController *tellFriendVC = nil;
 	[ImageCacheManager setImg:imageView	withUrlString:theUrl];
 	
 	//OnlyAccount *account = [OnlyAccount defaultAccount];
-	contentTV.text = [NSString stringWithFormat:@"我在尚品网看到”%@“活动，商品很棒，超低折扣，你也来看看吧:)",self.subjectTheme];
+	contentTV.text = [NSString stringWithFormat:@"我在尚品网看到“%@”活动，商品很棒，超低折扣，你也来看看吧:)\n",self.subjectTheme];
 	clearContent = TRUE;
 }
 

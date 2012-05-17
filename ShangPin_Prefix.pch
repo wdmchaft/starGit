@@ -33,7 +33,7 @@
 
 
 //#define ADDRESS @"http://192.168.1.23:7777/iphone/Action.ashx?action"                //跳转后的平台
-//#define ADDRESS @"http://192.168.2.248:7001/iphone/Action.ashx?v=1.3&action"                   //晓军
+//#define ADDRESS @"http://192.168.2.244:7001/iphone/Action.ashx?v=1.3&action"                   //晓军
 //#define ADDRESS @"http://192.168.2.237:7001/iphone/Action.ashx?v=1.3&action"                  //国杰 
 //#define ADDRESS @"http://192.168.4.228:7001/iphone/Action.ashx?v=1.3&action"               //新阳
 //#define ADDRESS @"http://192.168.4.227:7001/iphone/action.ashx?v=1.3&action"             //肖勇
