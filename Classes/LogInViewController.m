@@ -24,7 +24,8 @@
 	NSLog(@"保存用户信息");
     NSString *email = userNameTF.text;
 	NSString *password = passwordTF.text;
-	NSArray *m_array = [[NSArray alloc] initWithObjects:email,password,nil];
+    NSDate * loginDate  =  [NSDate date];          //记录登陆时间，用以判断是否显示密码
+	NSMutableArray *m_array = [[NSMutableArray alloc] initWithObjects:email,password,loginDate,nil];
 	NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]; 
 	NSString *filename = [path stringByAppendingPathComponent:@"userEmail"];
 	[NSKeyedArchiver archiveRootObject:m_array toFile:filename];
@@ -39,7 +40,13 @@
 	if([fileManager fileExistsAtPath:filename])
 	{
 		userNameTF.text = [[NSKeyedUnarchiver unarchiveObjectWithFile:filename] objectAtIndex:0];
-		passwordTF.text = [[NSKeyedUnarchiver unarchiveObjectWithFile:filename] objectAtIndex:1];
+		NSDate * loginDate = [[NSKeyedUnarchiver unarchiveObjectWithFile:filename] objectAtIndex:2];
+        if (-[loginDate timeIntervalSinceNow] >=7*24*60* 60)     //如果该用户已经超过一周未登录，则不显示之前密码
+        {
+            passwordTF.text = @"";
+            [[NSKeyedUnarchiver unarchiveObjectWithFile:filename] replaceObjectAtIndex:1 withObject:@""];
+        }else
+        passwordTF.text = [[NSKeyedUnarchiver unarchiveObjectWithFile:filename] objectAtIndex:1];
 	}
 }
 

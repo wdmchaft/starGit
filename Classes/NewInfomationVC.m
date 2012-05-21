@@ -498,7 +498,7 @@
             picAct.pic = [Pic stringValue];
           //NSLog(@"picAct.activityID = %@,picAct.activityNO = %@,picAct.time = %@,picAct.Pic = %@",picAct.activityID,picAct.activityNO,picAct.time,picAct.pic);
             [mutableSuperActArray addObject:picAct];
-            NSLog(@"mutableSuperActArray   count = %d",[mutableSuperActArray count]);
+            //NSLog(@"mutableSuperActArray   count = %d",[mutableSuperActArray count]);
             [picAct release];
         }
         //[self.superActArray initWithArray:mutableSuperActArray];

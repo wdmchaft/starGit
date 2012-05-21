@@ -679,7 +679,8 @@ static RegisterViewController *registerVC = nil;
     
     //    NSNumber * sexSegmentedCtlNum = [[NSNumber alloc] initWithUnsignedInteger:sexSegmentedCtl.selectedSegmentIndex];
     //    NSString *gender = [sexSegmentedCtlNum stringValue];
-	NSArray *m_array = [[NSArray alloc] initWithObjects:email,password,nil];
+    NSDate * loginDate  =  [NSDate date];
+	NSMutableArray *m_array = [[NSMutableArray alloc] initWithObjects:email,password,loginDate,nil];
     //    [sexSegmentedCtlNum release];
 	NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]; 
 	NSString *filename = [path stringByAppendingPathComponent:@"userEmail"];
@@ -851,7 +852,7 @@ static RegisterViewController *registerVC = nil;
 		if(flag == '1')
 		{
 			[self getAccountInfo];
-            [self loginSuccessNotice];
+            //[self loginSuccessNotice];
 		}
 		else
 		{
@@ -876,7 +877,7 @@ static RegisterViewController *registerVC = nil;
 		char flag = [str characterAtIndex:0];
 		if(flag == '-')
 		{
-			usleep(500000);
+			usleep(10000000);
 			[self getAccountInfo];
             NSLog(@"这是重新开始发送请求吗？  str = %@",str);
 		}
@@ -907,6 +908,8 @@ static RegisterViewController *registerVC = nil;
 			NSLog(@"real name : %@",account.realName);
 			[document release];
 			
+            [self loginSuccessNotice];
+            
 			LogInViewController *loginViewController = [LogInViewController defaultLoginViewController];
 			[self.view removeFromSuperview];
 			[loginViewController dismissModalViewControllerAnimated:NO];
