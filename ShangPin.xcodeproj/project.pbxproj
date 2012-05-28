@@ -32,7 +32,6 @@
 		0F9946AA132693CA0085253B /* SimilarProductImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9946A9132693CA0085253B /* SimilarProductImageView.m */; };
 		0F9946C01326985A0085253B /* Item2.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9946BF1326985A0085253B /* Item2.m */; };
 		0FAB4A6D1331FE4400267FF0 /* VoucherListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB4A6C1331FE4400267FF0 /* VoucherListViewController.m */; };
-		0FC965121342C21300AB9E79 /* LoginBottomImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FC965111342C21300AB9E79 /* LoginBottomImg.png */; };
 		0FD2B771132CA2C2009CE8FC /* cowbell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0FD2B770132CA2C2009CE8FC /* cowbell.wav */; };
 		0FD42BB91354940100F1D513 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD42BB71354940100F1D513 /* libMobClickLibrary.a */; };
 		0FD42BBB1354944700F1D513 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD42BBA1354944700F1D513 /* SystemConfiguration.framework */; };
@@ -128,18 +127,8 @@
 		18DD7817131C9F47006B603C /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DD7816131C9F47006B603C /* Record.m */; };
 		18F2B1301312996500276F0A /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F2B12F1312996500276F0A /* LoadingView.m */; };
 		18F434BE130CC6E9004B1DF2 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F434BD130CC6E9004B1DF2 /* UserInfoViewController.m */; };
-		18F434EE130CD29A004B1DF2 /* ContactNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434DD130CD29A004B1DF2 /* ContactNormal.png */; };
-		18F434EF130CD29A004B1DF2 /* ContractClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434DE130CD29A004B1DF2 /* ContractClick.png */; };
 		18F434F0130CD29A004B1DF2 /* InviteBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434DF130CD29A004B1DF2 /* InviteBG.png */; };
-		18F434F1130CD29A004B1DF2 /* AddressClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434E1130CD29A004B1DF2 /* AddressClick.png */; };
-		18F434F2130CD29A004B1DF2 /* AddressNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434E2130CD29A004B1DF2 /* AddressNormal.png */; };
 		18F434F5130CD29A004B1DF2 /* Money.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434E5130CD29A004B1DF2 /* Money.png */; };
-		18F434F6130CD29A004B1DF2 /* MyAlertClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434E6130CD29A004B1DF2 /* MyAlertClick.png */; };
-		18F434F7130CD29A004B1DF2 /* MyAlertNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434E7130CD29A004B1DF2 /* MyAlertNormal.png */; };
-		18F434F8130CD29A004B1DF2 /* SubscriptionClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434E8130CD29A004B1DF2 /* SubscriptionClick.png */; };
-		18F434F9130CD29A004B1DF2 /* SubscriptionNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434E9130CD29A004B1DF2 /* SubscriptionNormal.png */; };
-		18F434FA130CD29A004B1DF2 /* UserInfoClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434EA130CD29A004B1DF2 /* UserInfoClick.png */; };
-		18F434FB130CD29A004B1DF2 /* UserInfoNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434EB130CD29A004B1DF2 /* UserInfoNormal.png */; };
 		18F434FC130CD29A004B1DF2 /* VIP1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434EC130CD29A004B1DF2 /* VIP1.png */; };
 		18F434FD130CD29A004B1DF2 /* VIP2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F434ED130CD29A004B1DF2 /* VIP2.png */; };
 		18F4356B130CEE14004B1DF2 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F4356A130CEE14004B1DF2 /* CustomLabel.m */; };
@@ -364,7 +353,6 @@
 		0F9946BF1326985A0085253B /* Item2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item2.m; sourceTree = "<group>"; };
 		0FAB4A6B1331FE4400267FF0 /* VoucherListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoucherListViewController.h; sourceTree = "<group>"; };
 		0FAB4A6C1331FE4400267FF0 /* VoucherListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoucherListViewController.m; sourceTree = "<group>"; };
-		0FC965111342C21300AB9E79 /* LoginBottomImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginBottomImg.png; sourceTree = "<group>"; };
 		0FD2B770132CA2C2009CE8FC /* cowbell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cowbell.wav; sourceTree = "<group>"; };
 		0FD42BB71354940100F1D513 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		0FD42BB81354940100F1D513 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
@@ -514,18 +502,8 @@
 		18F2B12F1312996500276F0A /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		18F434BC130CC6E9004B1DF2 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		18F434BD130CC6E9004B1DF2 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
-		18F434DD130CD29A004B1DF2 /* ContactNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ContactNormal.png; sourceTree = "<group>"; };
-		18F434DE130CD29A004B1DF2 /* ContractClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ContractClick.png; sourceTree = "<group>"; };
 		18F434DF130CD29A004B1DF2 /* InviteBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InviteBG.png; sourceTree = "<group>"; };
-		18F434E1130CD29A004B1DF2 /* AddressClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddressClick.png; sourceTree = "<group>"; };
-		18F434E2130CD29A004B1DF2 /* AddressNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddressNormal.png; sourceTree = "<group>"; };
 		18F434E5130CD29A004B1DF2 /* Money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Money.png; sourceTree = "<group>"; };
-		18F434E6130CD29A004B1DF2 /* MyAlertClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyAlertClick.png; sourceTree = "<group>"; };
-		18F434E7130CD29A004B1DF2 /* MyAlertNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyAlertNormal.png; sourceTree = "<group>"; };
-		18F434E8130CD29A004B1DF2 /* SubscriptionClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SubscriptionClick.png; sourceTree = "<group>"; };
-		18F434E9130CD29A004B1DF2 /* SubscriptionNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SubscriptionNormal.png; sourceTree = "<group>"; };
-		18F434EA130CD29A004B1DF2 /* UserInfoClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UserInfoClick.png; sourceTree = "<group>"; };
-		18F434EB130CD29A004B1DF2 /* UserInfoNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UserInfoNormal.png; sourceTree = "<group>"; };
 		18F434EC130CD29A004B1DF2 /* VIP1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VIP1.png; sourceTree = "<group>"; };
 		18F434ED130CD29A004B1DF2 /* VIP2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VIP2.png; sourceTree = "<group>"; };
 		18F43569130CEE14004B1DF2 /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
@@ -1217,7 +1195,6 @@
 				A684491B13E114C00004BEBA /* TextField.png */,
 				A684491913E10EE20004BEBA /* close.png */,
 				A684491513E10AC70004BEBA /* Layer_DownRound.png */,
-				0FC965111342C21300AB9E79 /* LoginBottomImg.png */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1311,8 +1288,6 @@
 				A6B7E0A913EA7B47006DC5F3 /* Inv_cell_BackGround.png */,
 				0F91FAD313277BE800964A41 /* InviteSendClick.png */,
 				0F91FAD413277BE800964A41 /* InviteSendNormal.png */,
-				18F434DD130CD29A004B1DF2 /* ContactNormal.png */,
-				18F434DE130CD29A004B1DF2 /* ContractClick.png */,
 				18F434DF130CD29A004B1DF2 /* InviteBG.png */,
 			);
 			path = Invite;
@@ -1326,18 +1301,10 @@
 				18CC7C381310F04900635AE4 /* MyOrder */,
 				18A5F183130E7A44008EC41A /* Address */,
 				18A5F156130E74CB008EC41A /* PersonInfo */,
-				18F434E1130CD29A004B1DF2 /* AddressClick.png */,
-				18F434E2130CD29A004B1DF2 /* AddressNormal.png */,
 				A68EE8A213E959F000BF554B /* Male.png */,
 				A68EE8A313E959F100BF554B /* Female.png */,
 				A68EE8A813E95A7300BF554B /* NoneGender.png */,
 				18F434E5130CD29A004B1DF2 /* Money.png */,
-				18F434E6130CD29A004B1DF2 /* MyAlertClick.png */,
-				18F434E7130CD29A004B1DF2 /* MyAlertNormal.png */,
-				18F434E8130CD29A004B1DF2 /* SubscriptionClick.png */,
-				18F434E9130CD29A004B1DF2 /* SubscriptionNormal.png */,
-				18F434EA130CD29A004B1DF2 /* UserInfoClick.png */,
-				18F434EB130CD29A004B1DF2 /* UserInfoNormal.png */,
 				18F434EC130CD29A004B1DF2 /* VIP1.png */,
 				18F434ED130CD29A004B1DF2 /* VIP2.png */,
 				18A7EBA4131B8F19008EAC38 /* VIP3.png */,
@@ -1710,18 +1677,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DC530F130A2464001CC50F /* icon0.png in Resources */,
-				18F434EE130CD29A004B1DF2 /* ContactNormal.png in Resources */,
-				18F434EF130CD29A004B1DF2 /* ContractClick.png in Resources */,
 				18F434F0130CD29A004B1DF2 /* InviteBG.png in Resources */,
-				18F434F1130CD29A004B1DF2 /* AddressClick.png in Resources */,
-				18F434F2130CD29A004B1DF2 /* AddressNormal.png in Resources */,
 				18F434F5130CD29A004B1DF2 /* Money.png in Resources */,
-				18F434F6130CD29A004B1DF2 /* MyAlertClick.png in Resources */,
-				18F434F7130CD29A004B1DF2 /* MyAlertNormal.png in Resources */,
-				18F434F8130CD29A004B1DF2 /* SubscriptionClick.png in Resources */,
-				18F434F9130CD29A004B1DF2 /* SubscriptionNormal.png in Resources */,
-				18F434FA130CD29A004B1DF2 /* UserInfoClick.png in Resources */,
-				18F434FB130CD29A004B1DF2 /* UserInfoNormal.png in Resources */,
 				18F434FC130CD29A004B1DF2 /* VIP1.png in Resources */,
 				18F434FD130CD29A004B1DF2 /* VIP2.png in Resources */,
 				18F435E7130D2D11004B1DF2 /* Logo.png in Resources */,
@@ -1775,7 +1732,6 @@
 				0F9236FA132DB45B00A42854 /* DateButtonNormal.png in Resources */,
 				0F923847132E21D200A42854 /* aaa.jpeg in Resources */,
 				0F96AB6713330FB20099D56B /* Remark.png in Resources */,
-				0FC965121342C21300AB9E79 /* LoginBottomImg.png in Resources */,
 				0F09CD1913AA1073006DE7F7 /* 200.png in Resources */,
 				A697C20013D90F4B003C11CA /* 声音3.wav in Resources */,
 				A6A4F67C13DD40C8001D4B3C /* tellButton.png in Resources */,
@@ -2042,16 +1998,16 @@
 					armv7,
 					armv6,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: fang weimin (5F25SV3MT8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang weimin (5F25SV3MT8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_LDFLAGS = "-lxml2";
-				PROVISIONING_PROFILE = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
+				PROVISIONING_PROFILE = "0B25665D-5063-4AA3-AF9B-4707D3861570";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0B25665D-5063-4AA3-AF9B-4707D3861570";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
@@ -2061,8 +2017,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: fang weimin (5F25SV3MT8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang weimin (5F25SV3MT8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2078,8 +2034,8 @@
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = ShangPin;
-				PROVISIONING_PROFILE = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
+				PROVISIONING_PROFILE = "0B25665D-5063-4AA3-AF9B-4707D3861570";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0B25665D-5063-4AA3-AF9B-4707D3861570";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -2090,16 +2046,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: fang weimin (5F25SV3MT8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang weimin (5F25SV3MT8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_LDFLAGS = "-lxml2";
-				PROVISIONING_PROFILE = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
+				PROVISIONING_PROFILE = "0B25665D-5063-4AA3-AF9B-4707D3861570";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0B25665D-5063-4AA3-AF9B-4707D3861570";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
@@ -2109,8 +2065,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: fang weimin (5F25SV3MT8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang weimin (5F25SV3MT8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2126,8 +2082,8 @@
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = ShangPin;
-				PROVISIONING_PROFILE = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
+				PROVISIONING_PROFILE = "0B25665D-5063-4AA3-AF9B-4707D3861570";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0B25665D-5063-4AA3-AF9B-4707D3861570";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2137,8 +2093,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: fang weimin (5F25SV3MT8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang weimin (5F25SV3MT8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2154,8 +2110,8 @@
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = ShangPin;
-				PROVISIONING_PROFILE = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
+				PROVISIONING_PROFILE = "0B25665D-5063-4AA3-AF9B-4707D3861570";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0B25665D-5063-4AA3-AF9B-4707D3861570";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -2166,8 +2122,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: fang weimin (5F25SV3MT8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang weimin (5F25SV3MT8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ShangPin_Prefix.pch;
@@ -2181,8 +2137,8 @@
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = ShangPin;
-				PROVISIONING_PROFILE = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
+				PROVISIONING_PROFILE = "0B25665D-5063-4AA3-AF9B-4707D3861570";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0B25665D-5063-4AA3-AF9B-4707D3861570";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -2193,16 +2149,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: fang weimin (5F25SV3MT8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang weimin (5F25SV3MT8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_LDFLAGS = "-lxml2";
-				PROVISIONING_PROFILE = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
+				PROVISIONING_PROFILE = "0B25665D-5063-4AA3-AF9B-4707D3861570";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0B25665D-5063-4AA3-AF9B-4707D3861570";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
@@ -2215,8 +2171,8 @@
 					armv7,
 					armv6,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: fang weimin (5F25SV3MT8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fang weimin (5F25SV3MT8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: shangpin (Beijing) Electronic Commerce Co. Ltd.";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -2224,8 +2180,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-lxml2";
-				PROVISIONING_PROFILE = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6502680-5EF4-4C84-A90B-14A58CAA054E";
+				PROVISIONING_PROFILE = "0B25665D-5063-4AA3-AF9B-4707D3861570";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0B25665D-5063-4AA3-AF9B-4707D3861570";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};

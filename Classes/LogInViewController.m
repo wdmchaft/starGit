@@ -19,7 +19,7 @@
 
 #pragma mark -
 #pragma mark 数据存储
--(void) saveUserName
+-(void) saveUserName     //保存用户名密码
 {
 	NSLog(@"保存用户信息");
     NSString *email = userNameTF.text;
@@ -32,7 +32,7 @@
 	[m_array release];
 }
 
--(void) readUserName
+-(void) readUserName     //读用户名密码
 {
 	NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]; 
 	NSString *filename = [path stringByAppendingPathComponent:@"userEmail"];

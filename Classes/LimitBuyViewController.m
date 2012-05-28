@@ -311,7 +311,7 @@
 	NSLog(@"正在出售:%@",onsaleStr);
 	
 	NSURL *onSaleUrl = [[NSURL alloc] initWithString:onsaleStr];
-	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:onSaleUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:onSaleUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15];
 	loadingView = [[LoadingView alloc] initWithFrame:onsaleView.frame];
 	[self.view addSubview:loadingView];
 	onSaleConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -341,7 +341,7 @@
 	NSLog(@"即将出售:%@",willsaleStr);
 	
 	NSURL *willsaleUrl = [[NSURL alloc] initWithString:willsaleStr];
-	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:willsaleUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:willsaleUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15];
 	loadingView = [[LoadingView alloc] initWithFrame:willsaleView.frame];
 	[self.view addSubview:loadingView];
 	willSaleConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -367,7 +367,7 @@
 	NSLog(@"出售日历:%@",presellCalenderStr);
 	
 	NSURL *calenderUrl = [[NSURL alloc] initWithString:presellCalenderStr];
-	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:calenderUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:calenderUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15];
 	loadingView = [[LoadingView alloc] initWithFrame:CGRectMake(0, 40, 320, 327)];
 	[self.view addSubview:loadingView];
 	calenderConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];

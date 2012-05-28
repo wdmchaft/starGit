@@ -955,7 +955,10 @@
 			GDataXMLElement *postcode = [[receiver elementsForName:@"postcode"] objectAtIndex:0];
 			theReceiver.postcode = [postcode stringValue];
 			GDataXMLElement *phone = [[receiver elementsForName:@"phone"] objectAtIndex:0];
-			theReceiver.phone = [phone stringValue];
+			if ([[phone stringValue]isEqualToString:@"--"]) {
+                theReceiver.phone = @"";
+            }else
+                theReceiver.phone = [phone stringValue];
 			GDataXMLElement *mobile = [[receiver elementsForName:@"mobile"] objectAtIndex:0];
 			theReceiver.mobile = [mobile stringValue];
 			GDataXMLElement *consigneeid = [[receiver elementsForName:@"consigneeid"] objectAtIndex:0];

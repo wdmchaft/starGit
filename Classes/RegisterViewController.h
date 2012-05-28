@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
 extern NSString * const LoginSuccess;
 @interface RegisterViewController : UIViewController <UITextFieldDelegate> {
     
@@ -29,28 +27,19 @@ extern NSString * const LoginSuccess;
 	BOOL soldNotice;						//TRUE 接收通知, FALSE 拒绝通知
 	
 	UIView *clauseView;						//条款视图
-
-    
-    
     NSMutableData *receivedData;			//接口返回的数据
-	LoadingView *loadingView;				//等待界面
-
-    
+	LoadingView *loadingView;				//等待界面    
     NSURLConnection *registerConnection;	//注册链接
 	NSURLConnection *loginConnection;		//登录 链接
 	NSURLConnection *myAccountConnection;	//我的账户信息 链接
-	
-	
+
 	int maxConnectionCount;					//登录的最大次数限制
 
 }
 @property(nonatomic, retain) UITextField *emailTF;
 @property(nonatomic, retain) NSMutableData *receivedData;
 
-
-
 +(RegisterViewController *) defaultRegisterViewController;
-
 -(void) doLogin;
 
 //-(void)ChangeSegmentFont:(UIView *)aView;

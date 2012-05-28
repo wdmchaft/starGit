@@ -164,24 +164,9 @@
 #pragma mark LocaltionNotifiction
 - (void)setScheduleNotifications
 {
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-//    NSString * identifier = [[NSBundle mainBundle] bundleIdentifier];
-//    NSLog(@"我要看看bundle %@",identifier);
-//    for (UILocalNotification * localNotification in [[UIApplication sharedApplication]scheduledLocalNotifications]) {
-//        NSString * identifierString_bigDay = [localNotification.userInfo objectForKey:@"bigDay"];
-//        NSString * identifierString_weekly = [localNotification.userInfo objectForKey:@"weekly"];
-//        
-//        if ([identifierString_bigDay isEqualToString:@"bigDay"]||[identifierString_weekly isEqualToString:@"weekly"]) {
-//            [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
-//            NSLog(@"取消了");
-//            break;
-//        }
-//    }
-    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;  //app图标的角标数字归零
 
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    
-    
     UILocalNotification * localNotice_bigDay = [[UILocalNotification alloc] init];
     if (localNotice_bigDay != nil) {
         NSLog(@"本地通知");
@@ -192,9 +177,7 @@
         localNotice_bigDay.alertAction = @"进入活动";
         localNotice_bigDay.applicationIconBadgeNumber = 1;
         localNotice_bigDay.soundName = UILocalNotificationDefaultSoundName;
-        
-        //NSDateComponents
-        
+                
         NSString * bundleIdentifier = @"bigDay";
         NSDictionary * inforDic = [NSDictionary dictionaryWithObject:bundleIdentifier forKey:@"bigDay"];
         NSLog(@"看看infor = %@",inforDic);
@@ -213,9 +196,7 @@
         localNotice_weekly.alertAction = @"进入尚品";
         localNotice_weekly.applicationIconBadgeNumber = 1;
         localNotice_weekly.soundName = UILocalNotificationDefaultSoundName;
-        
-        //NSDateComponents
-        
+                
         NSString * bundleIdentifier = @"weekly";
         NSDictionary * inforDic = [NSDictionary dictionaryWithObject:bundleIdentifier forKey:@"weekly"];
         NSLog(@"看看infor = %@",inforDic);
@@ -224,9 +205,6 @@
         [[UIApplication sharedApplication] applicationState] ;
         [localNotice_weekly release];
     }
-    
-
-
 }
 
 # pragma mark -

@@ -278,7 +278,7 @@
 	NSLog(@"检查更新:%@",ckeckUpgradeUrlStr);
 	
 	NSURL *ckeckUpgradeUrl = [[NSURL alloc] initWithString:ckeckUpgradeUrlStr];
-	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:ckeckUpgradeUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:ckeckUpgradeUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     
 //  loadingView = [[LoadingView alloc] initWithFrame:CGRectMake(0, 0, 320, 367)];//self.view.frame];
 //	[self.view addSubview:loadingView];

@@ -110,7 +110,6 @@
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 #pragma mark -
 #pragma mark 初始化
-
 static RegisterViewController *registerVC = nil;
 +(RegisterViewController *) defaultRegisterViewController
 {

@@ -243,7 +243,7 @@
 	NSLog(@"博客列表:%@",blogListUrlStr);
 	
 	NSURL *blogListUrl = [[NSURL alloc] initWithString:blogListUrlStr];
-	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:blogListUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:blogListUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15];
 	
     loadingView = [[LoadingView alloc] initWithFrame:CGRectMake(0, 0, 320, 367)];//self.view.frame];
 	[self.view addSubview:loadingView];
@@ -263,7 +263,7 @@
 	NSLog(@"活动推荐:%@",superActUrlStr);
 	
 	NSURL *superActUrl = [[NSURL alloc] initWithString:superActUrlStr];
-	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:superActUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
+	NSURLRequest *request = [[NSURLRequest alloc] initWithURL:superActUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15];
 
     loadingView = [[LoadingView alloc] initWithFrame:CGRectMake(0, 0, 320, 367)];//self.view.frame];
 	[self.view addSubview:loadingView];
